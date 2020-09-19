@@ -2,64 +2,62 @@
   <v-container>
     <v-flex>
       <v-card outlined>
-        <!-- Image -->
-        <v-row class="d-flex flex-no-wrap">
-          <v-col>
-            <v-img
-              max-height="300px"
-              max-width="700px"
-              src="@/assets/contact/contact.jpg"
-            ></v-img>
-          </v-col>
+        <!-- Larger windows (horizontal alignment) -->
+        <v-row align="center" class="d-flex flex-no-wrap" v-if="windowSize >= 800">
           <!-- Text Information -->
           <v-col>
-            <v-card-title class="dollarGreen--text text-h4 font-weight-bold text-center">Thompson Accounting Company, PLLC</v-card-title>
-            <v-card-subtitle class="darkGreen--text text-h5 font-weight-bold text-center">Viviane Thompson, CPA</v-card-subtitle>
-            <v-card-text class="text-body-1 text-center">
-              1643 N Alvernon, Suite 104<br/>
-              Tucson, AZ 85712<br/><br/>
-              Office: (520) 822-8208<br/>
-              Cell: (520) 481-8015<br/><br/>
-              <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline dollarGreen--text">vthompson@vivianethompson.com</a>
-            </v-card-text>
+            <contact-info></contact-info>
+          </v-col>
+
+          <!-- Google Maps Widget -->
+          <v-col align="center">
+            <google-maps></google-maps>
           </v-col>
         </v-row>
 
-        <!-- Google Maps Widget -->
-        <v-row>
-          <v-col align="center">
-            <GmapMap
-              :center="{lat:32.2425361,lng:-110.910787}"
-              class="pa-2"
-              :zoom="16"
-              map-type-id="terrain"
-              style="width: 100%; height: 500px;"
-            >
-              <GmapMarker
-                :position="{lat:32.2425361,lng:-110.910787}"
-                :clickable="true"
-                @click="center={lat:32.2425361,lng:-110.910787}"
-              />
-            </GmapMap>
-          </v-col>
-        </v-row>
+        <!-- Smaller windows (vertical alignment) -->
+        <div v-else>
+          <!-- Text Information -->
+          <v-row align="center" justify="center">
+            <contact-info></contact-info>
+          </v-row>
+
+          <!-- Google Maps Widget -->
+          <v-row>
+            <v-col>
+              <google-maps></google-maps>
+            </v-col>
+          </v-row>
+        </div>
       </v-card>
     </v-flex>
   </v-container>
 </template>
 
-<style scoped>
-  .v-card__text, .v-card__title {
-    word-break: normal !important;
-  }
-</style>
-
 <script>
+
+import google_maps from "@/components/contact/google_maps.vue";
+import contact_info from "@/components/contact/contact_info.vue";
+
 export default {
+  components: {
+    "google-maps": google_maps,
+    "contact-info": contact_info,
+  },
   data: function() {
-    return {};
+    return {
+      windowSize: Number,
+    };
+  },
+  methods: {
+    resize: function() {
+      this.windowSize = window.innerWidth;
+    }
   },
   mounted: function() {
+    this.resize();
+    window.addEventListener("resize", this.resize, { passive: true });
+
     this.$store.commit("visit_contact");
   },
 }

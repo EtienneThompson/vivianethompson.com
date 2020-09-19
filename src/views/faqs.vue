@@ -2,9 +2,12 @@
   <v-container>
     <v-flex>
       <v-card outlined>
+        <!-- Business Solutions FAQs -->
         <v-row>
           <business-solutions :size="windowSize"></business-solutions>
         </v-row>
+
+        <!-- Larger windows (two columns) -->
         <v-row v-if="windowSize >= 600">
           <v-col cols="6">
             <forensic-accounting></forensic-accounting>
@@ -13,30 +16,16 @@
             <personal-accounting></personal-accounting>
           </v-col>
         </v-row>
+
+        <!-- Smaller windows (one column) -->
         <v-row v-else>
           <forensic-accounting></forensic-accounting>
           <personal-accounting></personal-accounting>
         </v-row>
+
+        <!-- Final contact panel -->
         <v-row>
-          <v-col>
-            <v-expansion-panels accordion flat hover>
-              <v-expansion-panel>
-                <v-expansion-panel-header>
-                  <v-row justify="starts">
-                    I have other questions!
-                  </v-row>
-                </v-expansion-panel-header>
-                <v-expansion-panel-content>
-                  Feel free to
-                  <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline dollarGreen--text">email</a>
-                  or better yet, to
-                  <a href="/contact" class="text-decoration-underline dollarGreen--text">call</a>
-                  &nbsp; me. As long as I am not working with a client, I'll answer the
-                  phone.
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-expansion-panels>
-          </v-col>
+          <contact></contact>
         </v-row>
       </v-card>
     </v-flex>
@@ -53,12 +42,14 @@
 import business_solutions from "@/components/faqs/business_solutions/business_solutions.vue";
 import forensic_accounting from "@/components/faqs/forensic_accounting.vue";
 import personal_accounting from "@/components/faqs/personal_accounting.vue";
+import contact from "@/components/faqs/contact.vue";
 
 export default {
   components: {
     "business-solutions": business_solutions,
     "forensic-accounting": forensic_accounting,
     "personal-accounting": personal_accounting,
+    "contact": contact,
   },
   data: function() {
     return {
@@ -66,6 +57,9 @@ export default {
     };
   },
   methods: {
+    route: function(path) {
+      this.$router.push(path);
+    },
     resize: function() {
       this.windowSize = window.innerWidth;
     }

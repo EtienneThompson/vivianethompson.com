@@ -5,7 +5,7 @@ import home from "@/views/home/home.vue";
 import about from "@/views/about.vue";
 import contact from "@/views/contact.vue";
 import business_consulting from "@/views/services/business_consulting.vue";
-import business_solutions from "@/views/services/business_solutions/business_solutions.vue";
+import business_solutions from "@/views/services/business_solutions.vue";
 import income_taxes from "@/views/services/income_taxes.vue";
 import personal_finance from "@/views/services/personal_finance.vue";
 import faqs from "@/views/faqs.vue";

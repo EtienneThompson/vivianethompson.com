@@ -2,57 +2,41 @@
   <v-container>
     <v-flex>
       <v-card outlined>
+        <!-- Card title -->
         <v-row justify="center">
           <v-card-title class="ocean--text text-h4 font-weight-bold">
             Forensic Accounting
           </v-card-title>
         </v-row>
+
+        <!-- Smaller window size images takes up entire row -->
         <v-row justify="center" v-if="windowSize < 800">
-          <img align="left" class="pa-2" src="@/assets/home/forensic_accounting/pot_of_books.jpg" />
+          <v-col>
+            <v-img align="left" class="pa-2" src="@/assets/home/forensic_accounting/forensic_accounting_landscape.jpg" width="100%"></v-img>
+          </v-col>
         </v-row>
+
         <v-layout>
           <v-flex>
-            <v-row>
-              <v-col v-if="windowSize > 800">
-                <img align="left" class="pl-10" src="@/assets/home/forensic_accounting/pot_of_books.jpg" width="100%" />
+            <v-row v-if="windowSize >= 450">
+              <!-- Larger window size image is in a column -->
+              <v-col v-if="windowSize >= 800">
+                <img align="left" aspect-ratio="0.761" class="pl-10" height="400px" src="@/assets/home/forensic_accounting/forensic_accounting_portrait.jpg" />
+              </v-col>
+              <!-- Larger window size (horizontal alignment) -->
+              <v-col>
+                <column1></column1>
               </v-col>
               <v-col>
-                <p>
-                  <span class="font-weight-bold">
-                    Financial and accounting fraud investigation
-                  </span><br/>
-                  - Employee theft and embezzlement<br/>
-                  - Theft of firm's assets (cash, inventory, etc)<br/>
-                  - Reconstruction of past records<br/>
-                  - Kickback schemes<br/>
-                  - Insurance fraud<br/>
-                  - Billing schemes<br/>
-                  - Money laundering<br/><br/>
-                  <span class="font-weight-bold">
-                    Marital dispute and dissolutions (divorce)
-                  </span><br/>
-                  - Evaluation and disclosure of assets<br/>
-                  - Reconctruction of asset activity<br/>
-                </p>
+                <column2></column2>
               </v-col>
+            </v-row>
+
+            <!-- Smaller window size (vertical alignment) -->
+            <v-row v-else>
               <v-col>
-                <p>
-                  <span class="font-weight-bold">
-                    Probate matters
-                  </span><br/>
-                  - Fiduciary use of funds<br/>
-                  - Intellectual property disputes<br/>
-                  - Breach of contract<br/><br/>
-                  <span class="font-weight-bold">
-                    Financially related disputes
-                  </span><br/>
-                  - Litigation support<br/>
-                  - Royalty payment disputes<br/><br/>
-                  <span class="font-weight-bold">
-                    Expert witness
-                  </span><br/>
-                  - Litigation support
-                </p>
+                <column1></column1>
+                <column2></column2>
               </v-col>
             </v-row>
           </v-flex>
@@ -69,7 +53,15 @@
 </style>
 
 <script>
+
+import column1 from "@/components/home/forensic_accounting/column1.vue";
+import column2 from "@/components/home/forensic_accounting/column2.vue";
+
 export default {
+  components: {
+    "column1": column1,
+    "column2": column2,
+  },
   data: function() {
     return {
       windowSize: Number,

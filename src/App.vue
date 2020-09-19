@@ -27,6 +27,7 @@
                   </v-card-subtitle>
                 </v-row>
               </v-col>
+
               <!-- Right side image and text -->
               <v-col>
                 <v-row align="center" justify="end">
@@ -55,6 +56,7 @@
     <!-- Header -->
     <v-row no-gutters v-show="mainPage">
       <navbar :clipped="clipped" :drawer="drawer" v-on:toggle="toggleNavbar()"></navbar>
+      <!-- Desktop toolbar -->
       <v-toolbar color="dollarGreen" elevation="2" v-if="windowSize >= 450">
         <toolbar
           :main="true"
@@ -62,6 +64,8 @@
           v-on:toggle="toggleNavbar()"
         ></toolbar>
       </v-toolbar>
+
+      <!-- Mobile toolbar -->
       <v-app-bar color="dollarGreen" elevation="2" fixed v-else>
         <toolbar
           :main="true"
@@ -71,6 +75,7 @@
       </v-app-bar>
     </v-row>
 
+    <!-- Mobile needs some padding to make sure all content is visible -->
     <div class="padding" v-if="windowSize < 450"></div>
 
     <!-- Main View -->
@@ -105,7 +110,7 @@
 
 import navbar from "@/components/toolbar/navbar.vue";
 import toolbar from "@/components/toolbar/toolbar.vue";
-import footer_text from "@/components/footer_text.vue";
+import footer_text from "@/components/toolbar/footer_text.vue";
 
 export default {
   components: {
@@ -128,7 +133,6 @@ export default {
   methods: {
     toggleNavbar: function() {
       this.drawer = !this.drawer;
-      console.log(this.drawer);
     },
     resize: function() {
       this.windowSize = window.innerWidth;

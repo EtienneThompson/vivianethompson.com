@@ -2,41 +2,48 @@
   <v-container>
     <v-flex>
       <v-card outlined>
+        <!-- Card title -->
         <v-row justify="center">
           <v-card-title class="ocean--text text-h4 font-weight-bold">Business Consulting</v-card-title>
         </v-row>
+
+        <!-- Smaller windows have image take up entire row -->
         <v-row justify="center" v-if="windowSize < 800">
-          <img class="pa-2" src="@/assets/services/business_consulting/puzzle_dollar.jpg" />
+          <v-col>
+            <v-img aspect-ratio="1.958" class="pa-1" src="@/assets/services/business_consulting/covid_business_consulting_landscape.jpg" width="100%"></v-img>
+          </v-col>
         </v-row>
+
         <v-layout>
           <v-flex>
             <v-row>
-              <v-col v-if="windowSize > 800">
-                <img align="left" class="pa-2" src="@/assets/services/business_consulting/puzzle_dollar.jpg" width="100%" />
+              <!-- Larger windows have image be a single column -->
+              <v-col cols="4" v-if="windowSize > 800">
+                <v-row justify="center">
+                  <img align="left" aspect-ratio="0.77" class="pa-2" height="376px" src="@/assets/services/business_consulting/covid_business_consulting_portrait.jpg" />
+                </v-row>
               </v-col>
-              <v-col>
-                <p class="pa-2">
-                  <span class="font-weight-bold">Soon to be Business Owner</span><br/>
-                  - Preparation of business plan<br/>
-                  - Setting up and "running a business" advice<br/>
-                  - Assistance in preparing a business loan application <br/><br/>
-                  <span class="font-weight-bold">Turn Around Services</span><br/>
-                  - Analysis of current financial and cash flow situation<br/>
-                  - Top down and bottom up analyses of management and processes<br/>
-                  - Implementation of new strategies: sales, product mix, inventory, human resources<br/>
-                  - Debt analysis and renegotiation<br/><br/>
-                </p>
+
+              <!-- Larger windows (horizontal alignment) -->
+              <v-col v-if="windowSize > 490">
+                <v-row>
+                  <v-col>
+                    <business-owner :breaker="false"></business-owner>
+                    <turn-around></turn-around>
+                  </v-col>
+                  <v-col>
+                    <expert-witness></expert-witness>
+                    <budgets></budgets>
+                  </v-col>
+                </v-row>
               </v-col>
-              <v-col>
-                <p class="pa-2">
-                  <span class="font-weight-bold">Budgets</span><br/>
-                  - Preparation of accurate, usable and measurable budgets<br/>
-                  - Follow up and revisions of budgets<br/><br/><br/>
-                  <span class="font-weight-bold">Expert Witness</span><br/>
-                  - Analysis of issues<br/>
-                  - Detailed report issues if necessary<br/>
-                  - Deposition and court appearances
-                </p>
+
+              <!-- Smaller windows (vertical alignment) -->
+              <v-col v-if="windowSize <= 490">
+                <business-owner :breaker="true"></business-owner>
+                <turn-around></turn-around>
+                <expert-witness></expert-witness>
+                <budgets></budgets>
               </v-col>
             </v-row>
           </v-flex>
@@ -53,7 +60,19 @@
 </style>
 
 <script>
+
+import business_owner from "@/components/services/business_consulting/business_owner.vue";
+import turn_around from "@/components/services/business_consulting/turn_around.vue";
+import budgets from "@/components/services/business_consulting/budgets.vue";
+import expert_witness from "@/components/services/business_consulting/expert_witness.vue";
+
 export default {
+  components: {
+    "business-owner": business_owner,
+    "turn-around": turn_around,
+    "budgets": budgets,
+    "expert-witness": expert_witness,
+  },
   data: function() {
     return {
       windowSize: Number,

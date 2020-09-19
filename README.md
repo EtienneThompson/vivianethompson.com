@@ -1,7 +1,6 @@
 # vivianethompson.com
-<<<<<<< HEAD
-Vue code for vivianethompson.com
-=======
+
+Code base for vivianethompson.com.
 
 ## Project setup
 ```
@@ -25,4 +24,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
->>>>>>> 3b7caa7... init

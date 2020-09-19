@@ -3,53 +3,41 @@
     <v-flex>
       <v-row>
         <v-card outlined>
+          <!-- Card title -->
           <v-row justify="center">
             <v-card-title class="ocean--text text-h4 font-weight-bold">Business Taxes</v-card-title>
           </v-row>
+
           <v-layout>
             <v-flex>
-              <img align="left" src="@/assets/services/income_taxes/tax_forms.jpg" class="pa-2" />
-              <p class="pa-2">
-                <span class="font-weight-bold">Taxes come once a year, right?</span><br/>
-                Wrong - taxes affect a business each time the business makes a purchase.
-                Why? Because in business, purchases need to be both ordinary and necessary
-                to be deductible. These need to be commonly accepted in your trade
-                of business although they don't need to be indispensable to be considered
-                necessary.<br/><br/>
-                When you wait until the end of the year to create financial statements,
-                you have no idea what your taxes will be. Being prepared is essential
-                to minimizing taxes and penalties assessed by the tax authorities.<br/><br/>
-                In addition, a business has many types of taxes to monitor, file returns,
-                and pay on time. Trying to wade the arena alone can be foolish because
-                there are so many deadlines that it's easy to miss them. Despite its
-                nickname, the IRS is not your benevolent uncle!<br/><br/>
-                Working with a knowledgeable professional can make all the difference
-                between always trying to catch up and feeling in control.<br/><br/>
-              </p>
+              <!-- Fixed image size (larger windows) -->
+              <img align="left" width="400px" src="@/assets/services/income_taxes/income_taxes.jpg" class="pa-2" v-if="windowSize >= 500" />
+              <!-- Dynamic image size (smaller windows) -->
+              <img align="center" width="100%" src="@/assets/services/income_taxes/income_taxes.jpg" class="pa-2" v-else />
+              <!-- Business Taxes card text -->
+              <bt-page-text></bt-page-text>
             </v-flex>
           </v-layout>
         </v-card>
       </v-row>
+
       <v-row class="pt-2">
         <v-card outlined>
+          <!-- Card title -->
           <v-row justify="center">
             <v-card-title class="ocean--text text-h4 font-weight-bold">Personal Taxes</v-card-title>
           </v-row>
+
           <v-layout>
             <v-flex>
-              <p class="pa-2">
-                They key to a smooth tax return is being organized: during the year
-                and at tax time. Depending on your situation, you may also need to
-                review your tax situation throughout the year to make sure that you
-                don't miss important deadlines.
-              </p>
-              <img align="right" src="@/assets/services/income_taxes/receipts.jpg" class="pa-2" />
-              <p class="pa-2">
-                Keep important documents aside because sooner or later, you will need
-                them, especially those that involved making money. Your filing system
-                does not have to be fancy - just a box can be enough as long as it's
-                not full of irrelevant stuff and not missing anything important.
-              </p>
+              <!-- First paragraph text -->
+              <pt-page-text-1></pt-page-text-1>
+              <!-- Fixed image size (larger windows) -->
+              <img align="right" width="410px" src="@/assets/services/income_taxes/personal_taxes.jpg" class="pa-2" v-if="windowSize >= 500" />
+              <!-- Dynamic image size (smaller windows) -->
+              <img align="center" width="100%" src="@/assets/services/income_taxes/personal_taxes.jpg" class="pa-2" v-else />
+              <!-- Second paragraph text -->
+              <pt-page-text-2></pt-page-text-2>
             </v-flex>
           </v-layout>
         </v-card>
@@ -68,11 +56,31 @@
 </style>
 
 <script>
+
+import bt_page_text from "@/components/services/income_taxes/bt_page_text.vue";
+import pt_page_text_1 from "@/components/services/income_taxes/pt_page_text_1.vue";
+import pt_page_text_2 from "@/components/services/income_taxes/pt_page_text_2.vue";
+
 export default {
+  components: {
+    "bt-page-text": bt_page_text,
+    "pt-page-text-1": pt_page_text_1,
+    "pt-page-text-2": pt_page_text_2,
+  },
   data: function() {
-    return {};
+    return {
+      windowSize: Number,
+    };
+  },
+  methods: {
+    resize: function() {
+      this.windowSize = window.innerWidth;
+    }
   },
   mounted: function() {
+    this.resize();
+    window.addEventListener("resize", this.resize, { passive: true });
+
     this.$store.commit("visit_sit");
   },
 };
