@@ -191,7 +191,10 @@
             <v-col v-else-if="hovered === 'viviane'">
               <v-row>
                 <v-col>
-                  <div class="viviane">
+                  <div class="viviane-mobile" v-if="windowSize < 800">
+                    Viviane <div>Thompson</div>
+                  </div>
+                  <div class="viviane-desktop" v-else>
                     Viviane <div>Thompson</div>
                   </div>
                 </v-col>
@@ -208,7 +211,7 @@
                     to Tucson in 2005, she decided to open an accounting and tax
                     practice rather than work for a single employer. She is married
                     to Dave Thompson, an Astronomer working for the Large Binocular
-                    Telescope (part of the Uuniversity of Arizona) and has a 20
+                    Telescope (part of the University of Arizona) and has a 20
                     year old son (who made this website!) who is enjoying his
                     studies in computer science.
                   </p>
@@ -268,10 +271,16 @@
     text-indent: 55%;
   }
 
-  .viviane {
+  .viviane-mobile {
     font-size: 20px;
     font-weight: bold;
     text-indent: 70%;
+  }
+
+  .viviane-desktop {
+    font-size: 20px;
+    font-weight: bold;
+    text-indent: 80%;
   }
 </style>
 

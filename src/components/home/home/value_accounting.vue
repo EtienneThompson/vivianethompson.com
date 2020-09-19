@@ -1,6 +1,6 @@
 <template>
   <v-card outlined>
-    <v-img aspect-ratio="1.5" height="300px" src="@/assets/home/tightrope.jpg" v-if="size < 800"></v-img>
+    <v-img aspect-ratio="1.5" height="300px" position="center 22%" src="@/assets/home/tightrope.jpg" v-if="size < 800"></v-img>
     <div class="d-flex flex-no-wrap">
       <div>
         <v-card-title class="dollarGreen--text text-h4">
