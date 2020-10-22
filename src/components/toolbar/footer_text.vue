@@ -1,8 +1,8 @@
 <template>
   <v-row v-if="size >= 830">
     <v-spacer></v-spacer>
-    <div class="text-body-1" v-if="size >= 830">Thompson Accounting Company, LLC</div>
-    <div class="text-body-2" v-else>Thompson Accounting Company, LLC</div>
+    <div class="text-body-1" v-if="size >= 830">Thompson Accounting Company, PLLC</div>
+    <div class="text-body-2" v-else>Thompson Accounting Company, PLLC</div>
     <v-spacer></v-spacer>
     <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline text-body-1 dollarGreen--text" v-if="size >= 830">vthompson@vivianethompson.com</a>
     <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline text-body-2 dollarGreen--text" v-else>vthompson@vivianethompson.com</a>
@@ -19,9 +19,9 @@
       <v-col cols="8">
         <v-row justify="center">
           <v-spacer></v-spacer>
-          <div class="text-body-1" v-if="size >= 830">Thompson Accounting Company, LLC</div>
-          <div class="text-body-2" v-else-if="size >= 515">Thompson Accounting Company, LLC</div>
-          <div class="text-caption" v-else>Thompson Accounting Company, LLC</div>
+          <div class="text-body-1" v-if="size >= 830">Thompson Accounting Company, PLLC</div>
+          <div class="text-body-2" v-else-if="size >= 515">Thompson Accounting Company, PLLC</div>
+          <div class="text-caption" v-else>Thompson Accounting Company, PLLC</div>
           <v-spacer></v-spacer>
         </v-row>
         <v-row justify="center">

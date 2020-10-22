@@ -21,7 +21,7 @@
       </span><br/><br/>
       <span class="tab">
         Budgets and forecasts are an integral part of being successful. I
-        wull create all the reports you will want to use to plan and
+        will create all the reports you will want to use to plan and
         benchmark your business growth.
       </span><br/><br/>
       <span class="font-weight-bold">Business Manager</span><br/>

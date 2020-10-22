@@ -29,7 +29,7 @@
                 meet one of us, you will right away know one thing: you are finally
                 in good hands because we love what we do and we are ready to get
                 to work, TODAY.  “They understand my harried life and provides
-                such amazing support that I can actually relax and breath!!”<br/><br/>
+                such amazing support that I can actually relax and breathe!!”<br/><br/>
                 Many business clients come to us after being jerked around by
                 people that promised the moon when all they want is a solution
                 for their accounting and bookkeeping issues. With gentle guidance
@@ -38,16 +38,16 @@
                 work with you to take care of the backlog, then we’ll give you
                 training and direction about your business today, and lastly, we
                 will be available for questions and help in the future.<br/><br/>
-                We are different from other accountants because we have both a
-                solid background in accounting and bookkeeping from working with
-                many small and mid-sized businesses as well as a solid knowledge
-                of QuickBooks, the bookkeeping software leader. Our specialization
-                is what we call “the other 11 months of the year, the months when
-                you are not thinking about filing your tax return.”<br/><br/>
+                We have solid backgrounds in accounting and bookkeeping, thorough
+                knowledge of QuickBooks (the bookkeeping software leader), and
+                extensive experience working with small and mid-sized businesses.
+                Our specialization is what we call “the other 11 months of the
+                year, the months when you are not thinking about filing your tax
+                return.”<br/><br/>
                 We will help you maneuver the maze of the payroll tax system,
-                prepare accurate sales tax reports, calculate workers compensation
-                premiums properly and best of all, develop a system that will
-                provide you with timely and accurate statements, designed just
+                prepare accurate sales tax reports, calculate worker's compensation
+                premiums properly, and best of all, develop a system that will
+                provide you with timely and accurate statements designed just
                 for you! Imagine knowing exactly how your business is doing so
                 that you can make decisions based on real facts.<br/><br/>
                 Our approach is bottom up: create a solid accounting and bookkeeping
@@ -58,12 +58,12 @@
                 As long as you are ready to work and trust the process, you will
                 gain the benefits of becoming organized, having your finances
                 under control and see your vision finally become a reality.<br/><br/>
-                <b>Tax Clients<br/></b>
-                Filling out tax returns and dealing with the IRS is very stressful
+                <b>Tax Clients</b><br/>
+                Filling out tax returns and dealing with the IRS is very stressful,
                 especially in this day and age of the gig economy. Between the
                 complexity of the tax laws, the numerous tax deadlines, and the
-                unnerving love letters from the IRS that seem to never end once
-                they start, we are there for clients to rely on us to take on
+                unnerving "love letters" from the IRS that seem to never end once
+                they start. We are there for our clients, who can rely on us to take on
                 some of these burdens. We work towards satisfying our clients by
                 providing a service that makes sure the return is as good as it
                 can be: we get to know our clients, we ask a lot of questions
@@ -72,7 +72,7 @@
                 mistakes, and we guide our clients with all the options available
                 to fix their tax problems.<br/><br/>
                 We look at our clients’ financial picture holistically: for example,
-                what’s the point of saving in taxes this year if it creates a worse
+                what is the point of saving taxes this year if it creates a worse
                 tax burden next year? We create estimated tax scenarios for clients
                 well in advance of the year-end to prepare them for upcoming bad
                 news (how much they will owe) and give them time to make adjustments
@@ -80,7 +80,7 @@
                 and advise on best tax practices that can affect them for years
                 to come.<br/><br/>
                 We do not offer cutting-edge or aggressive tax results, but we
-                are there to answer the IRS letters and fight back unfair tax
+                are there to answer the IRS letters and fight back against unfair tax
                 treatment by the IRS, fix mistakes, and throughout the whole
                 process to explain what’s going on so that clients can sleep
                 at night.
@@ -133,7 +133,7 @@
                 <v-col>
                   <p class="pa-2">
                     Cyndi received her CPA certificate in November 2015 after
-                    graduating with a Master’s in Accounting in December 2013
+                    graduating with a Masters of Accounting in December 2013
                     from the University of Arizona. She has been in Tucson since
                     2005 working as an auditor and accountant. She joined our
                     office in October 2019 specializing in the firm’s QuickBooks
@@ -176,9 +176,9 @@
                 <v-col>
                   <p class="pa-2">
                     Paula graduated from the University of Arizona in December
-                    2013 with a Bachelor’s Degree in Accounting with future plans
+                    2013 with a bachelor’s degree in Accounting. Her plans in 2020
                     are to continue her education and pass the CPA exam within
-                    the next two year. She has been in the bookkeeping and accounting
+                    the next two years. She has been in the bookkeeping and accounting
                     field since 2006 and has worked for Thompson Accounting for
                     the past 3 years wearing many different hats:  accountant,
                     tax preparer, and office manager. She is originally from
@@ -203,9 +203,9 @@
                 <v-col>
                   <p class="pa-2">
                     You will notice her accent right away, yes, it’s sounds German
-                    but it’s French. Viviane came to the US after highschool and
-                    worked while going to college. Upon taking an accounting class,
-                    she discovered her passion which has fueled her carreer since
+                    but she is French. Viviane came to the US after high school and
+                    worked while going to college. Upon taking an accounting class
+                    she discovered her passion, and has fueled her carreer since
                     then. Viviane got her CPA certificate in 1994 and has been
                     working for and with small business owners since. After moving
                     to Tucson in 2005, she decided to open an accounting and tax
