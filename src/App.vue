@@ -73,17 +73,15 @@
       </v-app-bar>
     </v-row>
 
-    <v-row no-gutters align-content="start" height="100%">
-      <!-- Mobile needs some padding to make sure all content is visible -->
-      <div class="padding" v-if="windowSize < 450"></div>
+    <!-- Mobile needs some padding to make sure all content is visible -->
+    <div class="padding" v-if="windowSize < 450"></div>
 
-      <!-- Main View -->
-      <v-row class="flex-column">
-        <router-view
-          :key="$router.fullPath"
-        >
-        </router-view>
-      </v-row>
+    <!-- Main View -->
+    <v-row class="flex-column">
+      <router-view
+        :key="$router.fullPath"
+      >
+      </router-view>
     </v-row>
 
     <!-- Footer -->
