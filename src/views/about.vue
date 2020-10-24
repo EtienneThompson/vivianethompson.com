@@ -104,16 +104,16 @@
           <!-- Images -->
           <v-row>
             <v-col>
-              <div @mouseover="hovered='cyndi'" @mouseleave="hovered=''">
+              <div @mouseover="hovered='cyndi'">
                 <img class="image-row image--center-top" src="@/assets/about/cyndi_team_2.jpg" />
               </div>
-              <div @mouseover="hovered='melissa'" @mouseleave="hovered=''">
+              <div @mouseover="hovered='melissa'">
                 <img class="image-row image--center-top" src="@/assets/about/melissa_team_2.jpg" />
               </div>
-              <div @mouseover="hovered='paula'" @mouseleave="hovered=''">
+              <div @mouseover="hovered='paula'">
                 <img class="image-row image--center-top" src="@/assets/about/paula_team_2.jpg" />
               </div>
-              <div @mouseover="hovered='viviane'" @mouseleave="hovered=''">
+              <div @mouseover="hovered='viviane'">
                 <img class="image-row image--center-top" src="@/assets/about/viviane_team_2.jpg" />
               </div>
             </v-col>
@@ -138,7 +138,9 @@
                     2005 working as an auditor and accountant. She joined our
                     office in October 2019 specializing in the firm’s QuickBooks
                     online clients along with payroll, sales tax, and monthly
-                    accounting. She lives with an extremly adorable cat, Kerfluffle.
+                    accounting. She lives with an extremly adorable cat, Kerfluffle.<br/>
+                    Email:
+                    <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline text-body-1 dollarGreen--text">cyndi@vivianethompson.com</a>
                   </p>
                 </v-col>
               </v-row>
@@ -160,6 +162,9 @@
                     so they can spend less time bookkeeping and more time growing
                     their business. Melissa has 3 teenagers at home and is busy
                     with them – enough said.
+                    <br/>
+                    Email:
+                    <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline text-body-1 dollarGreen--text">melissa@vivianethompson.com</a>
                   </p>
                 </v-col>
               </v-row>
@@ -183,7 +188,9 @@
                     the past 3 years wearing many different hats:  accountant,
                     tax preparer, and office manager. She is originally from
                     California, and has called Tucson home since 2003. Her black,
-                    furry, needy and gift-giving cat is named JJ.
+                    furry, needy and gift-giving cat is named JJ.<br/>
+                    Email:
+                    <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline text-body-1 dollarGreen--text">paula@vivianethompson.com</a>
                   </p>
                 </v-col>
               </v-row>
@@ -213,7 +220,11 @@
                     to Dave Thompson, an Astronomer working for the Large Binocular
                     Telescope (part of the University of Arizona) and has a 20
                     year old son (who made this website!) who is enjoying his
-                    studies in computer science.
+                    studies in computer science.<br/>
+                    Email:
+                    <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline text-body-1 dollarGreen--text">vthompson@vivianethompson.com</a><br/>
+                    <a href="http://www.azaccountancy.gov/" class="text-decoration-underline text-body-1 dollarGreen--text" target="_blank">Arizona CPA License #</a> 14363-R<br/>
+                    <a href="http://www.dca.ca.gov/cba/" class="text-decoration-underline text-body-1 dollarGreen--text" target="_blank">California CPA License #</a> 67056
                   </p>
                 </v-col>
               </v-row>
