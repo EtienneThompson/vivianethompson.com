@@ -1,6 +1,6 @@
 <template>
   <v-col :cols="size >= 800 ? '4' : '12'">
-    <v-card outlined>
+    <v-card outlined @click="route('/services/income_taxes');">
       <v-img height="150px" src="@/assets/home/receipts.jpg"></v-img>
       <v-card-title class="ocean--text">Taxes</v-card-title>
       <v-card-text>

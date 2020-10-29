@@ -1,6 +1,6 @@
 <template>
   <v-col :cols="size >= 800 ? '4' : '12'">
-    <v-card outlined>
+    <v-card outlined @click="route('/forensic_accounting');">
       <v-img height="150px" src="@/assets/home/forensic_accounting.jpg"></v-img>
       <v-card-title class="ocean--text">Forensic Accounting</v-card-title>
       <v-card-text>

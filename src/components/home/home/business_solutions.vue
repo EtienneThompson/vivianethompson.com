@@ -1,6 +1,6 @@
 <template>
   <v-col :cols="size >= 800 ? '4' : '12'">
-    <v-card outlined>
+    <v-card outlined @click="route('/services/business_solutions');">
       <v-img height="150px" src="@/assets/home/business_solutions.jpg"></v-img>
       <v-card-title class="ocean--text">Business Solutions</v-card-title>
       <v-card-text>
