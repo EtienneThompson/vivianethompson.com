@@ -54,6 +54,17 @@ export default {
   components: {
     "login-form": login_form,
   },
+  metaInfo: function() {
+    return {
+      title: "Thompson Accounting - Client Login",
+      meta: [
+        { name: "description", content: "Expert advice for all your accounting needs. Troubleshoot accounting issues. Periodical controller: fulfill controller duties as needed. Personal accounting for busy families and professionals." },
+        { name: "robots", content: "index, follow" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "charset", content: "UTF-8" },
+      ]
+    }
+  },
   data: function() {
     return {
       windowSize: Number,

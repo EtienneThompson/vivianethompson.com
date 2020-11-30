@@ -41,6 +41,17 @@ export default {
       windowSize: Number,
     };
   },
+  metaInfo: function() {
+    return {
+      title: "Thompson Accounting - QuickBooks",
+      meta: [
+        { name: "description", content: "QuickBooks (QB) is the number one software of small businesses providing a fantastic accounting solution to business owners or families with no or little bookkeeping experience or accounting training, yet helping provide financial structure and compliance. The software is truly multi-level, from the most basic checking account function to complex reports, queries and capabilities." },
+        { name: "robots", content: "index, follow" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "charset", content: "UTF-8" },
+      ]
+    }
+  },
   methods: {
     route: function(path) {
       this.$router.push(path);

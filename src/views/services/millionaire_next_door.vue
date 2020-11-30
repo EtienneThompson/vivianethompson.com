@@ -43,6 +43,17 @@ export default {
       windowSize: Number,
     };
   },
+  metaInfo: function() {
+    return {
+      title: "Thompson Accounting - Are you the Millionaire Next Door?",
+      meta: [
+        { name: "description", content: "Are you the Millionaire Next Door? Formula to determine if you are wealthy." },
+        { name: "robots", content: "index, follow" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "charset", content: "UTF-8" },
+      ]
+    }
+  },
   methods: {
     resize: function() {
       this.windowSize = window.innerWidth;

@@ -32,6 +32,17 @@ export default {
   components: {
     "panels": panels,
   },
+  metaInfo: function() {
+    return {
+      title: "Thompson Accounting - Why QuickBooks?",
+      meta: [
+        { name: "description", content: "QuickBooks is the ideal accounting software for small businesses and families." },
+        { name: "robots", content: "index, follow" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "charset", content: "UTF-8" },
+      ]
+    }
+  },
   data: function() {
     return {};
   },

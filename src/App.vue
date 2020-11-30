@@ -55,7 +55,7 @@
     <v-row align="stretch" no-gutters v-show="mainPage">
       <navbar :clipped="clipped" :drawer="drawer" v-on:toggle="toggleNavbar()"></navbar>
       <!-- Desktop toolbar -->
-      <v-toolbar color="dollarGreen" elevation="2" fixed v-if="windowSize >= 450">
+      <v-toolbar color="dollarGreen" elevation="2" v-if="windowSize >= 450">
         <toolbar
           :main="true"
           :size="windowSize"
@@ -129,6 +129,17 @@ export default {
       drawer: null,
       windowSize: Number,
     };
+  },
+  metaInfo: function() {
+    return {
+      title: "Thompson Accounting - Gain Control of Your Finances",
+      meta: [
+        { name: "description", content: "Expert advice for all your accounting needs. Troubleshoot accounting issues. Periodical controller: fulfill controller duties as needed. Personal accounting for busy families and professionals." },
+        { name: "robots", content: "index, follow" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "charset", content: "UTF-8" },
+      ]
+    }
   },
   methods: {
     toggleNavbar: function() {

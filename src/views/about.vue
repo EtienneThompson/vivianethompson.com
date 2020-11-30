@@ -308,6 +308,17 @@ export default {
       this.windowSize = window.innerWidth;
     }
   },
+  metaInfo: function() {
+    return {
+      title: "Thompson Accounting - About Us",
+      meta: [
+        { name: "description", content: "Clients come to Viviane after being jerked around by countless accountants that promised the moon and back when all they want is a solution for their accounting and bookkeeping issues. With gentle guidance and lots of questions, Viviane will get to know you and your business and will figure out a program that works for you. First, she'll work with you to take care of the backlog, then she'll give you training and direction about your business tody, and lastly she will be available for questions and help in the future." },
+        { name: "robots", content: "index, follow" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "charset", content: "UTF-8" },
+      ]
+    }
+  },
   mounted: function() {
     // Increment the traffic for analytics.
     this.$store.commit("visit_about");
