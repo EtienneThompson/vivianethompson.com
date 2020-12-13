@@ -6,7 +6,7 @@
         <v-card outlined>
           <!-- Card title -->
           <v-row justify="center">
-            <v-card-title class="ocean--text text-h4 font-weight-bold">
+            <v-card-title class="ml-4 mr-4 ocean--text text-h4 font-weight-bold">
               Thompson Accounting, PLLC
             </v-card-title>
           </v-row>
@@ -21,7 +21,7 @@
           <!-- Thompson Accounting blurb -->
           <v-row>
             <v-col>
-              <p class="pa-2">
+              <p class="pa-5">
                 <b>Business Clients<br/></b>
                 Our office has been serving the personal and business community
                 since 2008. Over the years, we have grown to 4 champion accountants,
@@ -131,7 +131,7 @@
               </v-row>
               <v-row>
                 <v-col>
-                  <p class="pa-2">
+                  <p class="pa-5">
                     Cyndi received her CPA certificate in November 2015 after
                     graduating with a Masters of Accounting in December 2013
                     from the University of Arizona. She has been in Tucson since
@@ -155,7 +155,7 @@
               </v-row>
               <v-row>
                 <v-col>
-                  <p class="pa-2">
+                  <p class="pa-5">
                     Melissa Dojaquez is a Tucson native and a U of A graduate
                     with over 10 years of bookkeeping experience. Melissa enjoys
                     helping clients learn how to use QuickBooks more efficiently
@@ -179,7 +179,7 @@
               </v-row>
               <v-row>
                 <v-col>
-                  <p class="pa-2">
+                  <p class="pa-5">
                     Paula graduated from the University of Arizona in December
                     2013 with a bachelor’s degree in Accounting. Her plans in 2020
                     are to continue her education and pass the CPA exam within
@@ -208,7 +208,7 @@
               </v-row>
               <v-row>
                 <v-col>
-                  <p class="pa-2">
+                  <p class="pa-5">
                     You will notice her accent right away, yes, it’s sounds German
                     but she is French. Viviane came to the US after high school and
                     worked while going to college. Upon taking an accounting class

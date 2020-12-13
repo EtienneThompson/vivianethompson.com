@@ -7,6 +7,10 @@
           <business-solutions :size="windowSize"></business-solutions>
         </v-row>
 
+        <v-row justify="center">
+          <v-img contain height="300px" src="@/assets/faqs/accounting_humor.png"></v-img>
+        </v-row>
+
         <!-- Larger windows (two columns) -->
         <v-row v-if="windowSize >= 600">
           <v-col cols="6">

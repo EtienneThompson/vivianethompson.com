@@ -1,23 +1,27 @@
 <template>
-  <v-row align="center" no-gutters v-if="size >= 630">
-    <v-spacer></v-spacer>
-    <home :size="size"></home>
-    <about :size="size"></about>
-    <services :size="size"></services>
-    <quickbooks :size="size"></quickbooks>
-    <faqs :size="size"></faqs>
-    <contact :size="size"></contact>
-    <v-spacer></v-spacer>
-    <login :main="main" :size="size"></login>
-  </v-row>
+  <v-container>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
 
-  <v-row align="center" no-gutters v-else>
-    <v-btn @click="$emit('toggle');" text v-if="main">
-      <v-icon>mdi-view-headline</v-icon>
-    </v-btn>
-    <v-spacer></v-spacer>
-    <login :main="main" :size="size"></login>
-  </v-row>
+    <v-row align="center" no-gutters v-if="size >= 630">
+      <v-spacer></v-spacer>
+      <home :size="size"></home>
+      <about :size="size"></about>
+      <services :size="size"></services>
+      <quickbooks :size="size"></quickbooks>
+      <faqs :size="size"></faqs>
+      <contact :size="size"></contact>
+      <v-spacer></v-spacer>
+      <login :main="main" :size="size"></login>
+    </v-row>
+
+    <v-row align="center" no-gutters v-else>
+      <v-btn @click="$emit('toggle');" icon text v-if="main">
+        <v-icon>mdi-view-headline</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
+      <login :main="main" :size="size"></login>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
