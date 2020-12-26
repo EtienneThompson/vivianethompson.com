@@ -127,7 +127,7 @@ export default {
     return {
       clipped: false,
       drawer: null,
-      windowSize: Number,
+      windowSize: 0,
     };
   },
   metaInfo: function() {
