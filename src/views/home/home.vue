@@ -1,5 +1,34 @@
 <template>
   <v-container>
+    <!-- COVID Banner -->
+    <v-row>
+      <v-col>
+        <!-- <v-card outlined> -->
+          <v-banner class="text-center" outlined rounded>
+            <v-row>
+              <v-col cols="1">
+                <v-icon class="align-center" large color="red">
+                  mdi-information-outline
+                </v-icon>
+              </v-col>
+              <v-col>
+                During COVID-19, zoom meetings are preferred. In person
+                meetings available when zoom is not possible, and will take
+                place outside.
+                <a
+                  @click="route('/contact');"
+                  class="text-decoration-underline dollarGreen--text"
+                >
+                  Call
+                </a>
+                &nbsp;for details.
+              </v-col>
+            </v-row>
+          </v-banner>
+        <!-- </v-card> -->
+      </v-col>
+    </v-row>
+
     <!-- Top Card -->
     <v-row>
       <v-flex>

@@ -217,10 +217,10 @@
                     working for and with small business owners since. After moving
                     to Tucson in 2005, she decided to open an accounting and tax
                     practice rather than work for a single employer. She is married
-                    to Dave Thompson, an Astronomer working for the Large Binocular
+                    to Dave Thompson, an astronomer working for the Large Binocular
                     Telescope (part of the University of Arizona) and has a 20
-                    year old son (who made this website!) who is enjoying his
-                    studies in computer science.<br/>
+                    year old son (he made this website!) who is enjoying his
+                    studies in Computer Science and Chinese.<br/>
                     Email:
                     <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline text-body-1 dollarGreen--text">vthompson@vivianethompson.com</a><br/>
                     <a href="http://www.azaccountancy.gov/" class="text-decoration-underline text-body-1 dollarGreen--text" target="_blank">Arizona CPA License #</a> 14363-R<br/>

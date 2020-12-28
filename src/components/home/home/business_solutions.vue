@@ -1,15 +1,26 @@
 <template>
   <v-col :cols="size >= 800 ? '4' : '12'">
-    <v-card outlined @click="route('/services/business_solutions');">
-      <v-img height="150px" src="@/assets/home/business_solutions.jpg"></v-img>
+    <v-card outlined>
+      <div @click="route('/services/business_solutions');">
+        <v-img
+          height="150px"
+          src="@/assets/home/business_solutions.jpg"
+        ></v-img>
+      </div>
       <v-card-title class="ocean--text">Business Solutions</v-card-title>
       <v-card-text>
-        Our firm provides tools to organize, manage and control the accounting and finances of your small business. We become the periodic business manager or controller, and provide you with business and financial advice in all areas of your business.
-        <br />
-        <br />Would you like to know more about how we can help you with QuickBooks?
+        Our firm provides tools to organize, manage and control the accounting
+        and finances of your small business. We become the periodic business
+        manager or controller, and provide you with business and financial
+        advice in all areas of your business.
+        <br /><br />
+        Would you like to know more about how we can help you with QuickBooks?
       </v-card-text>
       <v-card-actions>
-        <v-btn color="dollarGreen" @click="route('/services/business_solutions');">
+        <v-btn
+          color="dollarGreen"
+          @click="route('/services/business_solutions');"
+        >
           Read More...
         </v-btn>
       </v-card-actions>

@@ -1,11 +1,20 @@
 <template>
   <v-col :cols="size >= 800 ? '4' : '12'">
-    <v-card outlined @click="route('/forensic_accounting');">
-      <v-img height="150px" src="@/assets/home/forensic_accounting.jpg"></v-img>
+    <v-card outlined >
+      <div @click="route('/forensic_accounting');">
+        <v-img
+          height="150px"
+          src="@/assets/home/forensic_accounting.jpg"
+        ></v-img>
+      </div>
       <v-card-title class="ocean--text">Forensic Accounting</v-card-title>
       <v-card-text>
         Forensic accounting is not just about financial crimes.
-        <br />We reconstruct your financial documents using auditing and investigative skills to help you get resolution and closure. No matter how far back you need to look, we take your financial information and present it in a manner that you and others can understand.
+        <br />
+        We reconstruct your financial documents using auditing and
+        investigative skills to help you get resolution and closure. No matter
+        how far back you need to look, we take your financial information and
+        present it in a manner that you and others can understand.
       </v-card-text>
       <v-card-actions>
         <v-btn color="dollarGreen" @click="route('/forensic_accounting');">
