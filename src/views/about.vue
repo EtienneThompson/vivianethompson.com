@@ -141,7 +141,7 @@
                     accounting. She lives with an extremly adorable cat, Kerfluffle.<br/>
                     Email:
                     <v-img
-                      src="@/assets/about/emails/cyndi_email.png"
+                      src="@/assets/about/cyndi_email.jpg"
                       width="225px"
                     ></v-img>
                   </p>
@@ -168,7 +168,7 @@
                     <br/>
                     Email:
                     <v-img
-                      src="@/assets/about/emails/melissa_email.png"
+                      src="@/assets/about/melissa_email.jpg"
                       width="225px"
                     ></v-img>
                   </p>
@@ -197,7 +197,7 @@
                     furry, needy and gift-giving cat is named JJ.<br/>
                     Email:
                     <v-img
-                      src="@/assets/about/emails/paula_email.png"
+                      src="@/assets/about/paula_email.jpg"
                       width="225px"
                     ></v-img>
                   </p>
