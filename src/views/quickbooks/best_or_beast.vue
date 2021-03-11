@@ -10,9 +10,9 @@
         <v-layout>
           <v-flex>
             <!-- Fixed image size (larger windows) -->
-            <img align="left" width="410px" src="@/assets/quickbooks/quickbooks.jpg" class="pa-2" v-if="windowSize >= 500" />
+            <img align="left" width="410px" src="@/assets/quickbooks/best_or_beast/quickbooks.jpg" class="pa-2" v-if="windowSize >= 500" />
             <!-- Dynamic image size (smaller windows) -->
-            <img justify="center" width="100%" src="@/assets/quickbooks/quickbooks.jpg" class="pa-2" v-else />
+            <img justify="center" width="100%" src="@/assets/quickbooks/best_or_beast/quickbooks.jpg" class="pa-2" v-else />
             <!-- Page text -->
             <page-text></page-text>
           </v-flex>

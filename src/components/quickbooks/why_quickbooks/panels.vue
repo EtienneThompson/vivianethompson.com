@@ -130,6 +130,8 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
+
+    <v-img contain height="300px" src="@/assets/quickbooks/why_quickbooks/tax_relief_joke.png"></v-img>
   </v-container>
 </template>
 

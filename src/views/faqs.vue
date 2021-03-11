@@ -7,9 +7,14 @@
           <business-solutions :size="windowSize"></business-solutions>
         </v-row>
 
-        <!-- <v-row justify="center">
-          <v-img contain height="300px" src="@/assets/faqs/accounting_humor.png"></v-img>
-        </v-row> -->
+        <v-row justify="center">
+          <v-col cols="6">
+            <v-img contain height="300px" src="@/assets/faqs/accounting_humor.jpg"></v-img>
+          </v-col>
+          <v-col cols="6">
+            <v-img contain height="300px" src="@/assets/faqs/tax_preparation_joke.jpg"></v-img>
+          </v-col>
+        </v-row>
 
         <!-- Larger windows (two columns) -->
         <v-row v-if="windowSize >= 600">

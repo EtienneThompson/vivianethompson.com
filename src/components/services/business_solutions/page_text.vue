@@ -31,6 +31,7 @@
         - Control payroll and employees<br/>
         - Use policies and procedures<br/><br/>
       </span><br/>
+      <v-img contain height="300px" src="@/assets/services/business_solutions/robert_kiyosaki_quote.jpg"></v-img>
       <span class="font-weight-bold text-h4">Here are areas of business that we may become involved in:</span><br/>
     </p>
   </v-container>
