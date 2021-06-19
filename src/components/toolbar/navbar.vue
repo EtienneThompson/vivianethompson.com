@@ -33,7 +33,6 @@
 </template>
 
 <script>
-
 import home from "./buttons/home.vue";
 import about from "./buttons/about.vue";
 import quickbooks from "./buttons/quickbooks.vue";
@@ -48,16 +47,16 @@ export default {
     "quickbooks": quickbooks,
     "services": services,
     "faqs": faqs,
-    "contact": contact,
+    "contact": contact
   },
   data: function() {
     return {
-      previous: false,
+      previous: false
     };
   },
   props: {
     clipped: Boolean,
-    drawer: Boolean,
+    drawer: Boolean
   },
   watch: {
     drawer: function() {

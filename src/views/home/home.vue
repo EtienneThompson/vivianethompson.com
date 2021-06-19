@@ -1,34 +1,5 @@
 <template>
   <v-container>
-    <!-- COVID Banner -->
-    <v-row>
-      <v-col>
-        <!-- <v-card outlined> -->
-          <v-banner class="text-center" outlined rounded>
-            <v-row>
-              <v-col cols="1">
-                <v-icon class="align-center" large color="red">
-                  mdi-information-outline
-                </v-icon>
-              </v-col>
-              <v-col>
-                During COVID-19, zoom meetings are preferred. In person
-                meetings available when zoom is not possible, and will take
-                place outside.
-                <a
-                  @click="route('/contact');"
-                  class="text-decoration-underline dollarGreen--text"
-                >
-                  Call
-                </a>
-                &nbsp;for details.
-              </v-col>
-            </v-row>
-          </v-banner>
-        <!-- </v-card> -->
-      </v-col>
-    </v-row>
-
     <!-- Top Card -->
     <v-row>
       <v-flex>
@@ -38,7 +9,7 @@
 
     <!-- Larger window size (horizontal alignment) -->
     <v-row v-if="windowSize >= 800">
-    <!-- Bottom Left Card -->
+      <!-- Bottom Left Card -->
       <business-solutions :size="windowSize"></business-solutions>
 
       <!-- Bottom Center Card -->
@@ -64,13 +35,13 @@
 </template>
 
 <style scoped>
-  .v-card__text, .v-card__title {
-    word-break: normal !important;
-  }
+.v-card__text,
+.v-card__title {
+  word-break: normal !important;
+}
 </style>
 
 <script>
-
 import value_accounting from "@/components/home/home/value_accounting.vue";
 import business_solutions from "@/components/home/home/business_solutions.vue";
 import taxes from "@/components/home/home/taxes.vue";
@@ -80,12 +51,12 @@ export default {
   components: {
     "value-accounting": value_accounting,
     "business-solutions": business_solutions,
-    "taxes": taxes,
+    taxes: taxes,
     "forensic-accounting": forensic_accounting,
   },
   data: function() {
     return {
-      windowSize: Number,
+      windowSize: 0,
     };
   },
   methods: {
@@ -94,7 +65,7 @@ export default {
     },
     resize: function() {
       this.windowSize = window.innerWidth;
-    }
+    },
   },
   mounted: function() {
     this.resize();
