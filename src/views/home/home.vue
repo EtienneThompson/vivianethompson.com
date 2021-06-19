@@ -52,20 +52,29 @@ export default {
     "value-accounting": value_accounting,
     "business-solutions": business_solutions,
     taxes: taxes,
-    "forensic-accounting": forensic_accounting,
+    "forensic-accounting": forensic_accounting
   },
   data: function() {
     return {
-      windowSize: 0,
+      windowSize: 0
     };
   },
   methods: {
     route: function(path) {
-      this.$router.push(path);
+      this.$router.push(path).catch(error => {
+        if (
+          error.name !== "NavigationDuplicated" &&
+          !error.mesage.includes(
+            "Avoided redundant navigation to current location"
+          )
+        ) {
+          console.log(error);
+        }
+      });
     },
     resize: function() {
       this.windowSize = window.innerWidth;
-    },
+    }
   },
   mounted: function() {
     this.resize();
@@ -73,6 +82,6 @@ export default {
 
     // Increment traffic for analytics.
     this.$store.commit("visit_home");
-  },
+  }
 };
 </script>

@@ -10,10 +10,10 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item @click="route('/quickbooks/best_or_beast');">
+        <v-list-item @click="route('/quickbooks/best_or_beast')">
           <v-list-item-title>Best or Beast?</v-list-item-title>
         </v-list-item>
-        <v-list-item @click="route('/quickbooks/why');">
+        <v-list-item @click="route('/quickbooks/why')">
           <v-list-item-title>Why QuickBooks?</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -28,11 +28,20 @@ export default {
   },
   methods: {
     route: function(path) {
-      this.$router.push(path);
+      this.$router.push(path).catch(error => {
+        if (
+          error.name !== "NavigationDuplicated" &&
+          !error.mesage.includes(
+            "Avoided redundant navigation to current location"
+          )
+        ) {
+          console.log(error);
+        }
+      });
     }
   },
   props: {
-    size: Number,
+    size: Number
   }
 };
 </script>

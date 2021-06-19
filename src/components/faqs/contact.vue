@@ -10,11 +10,19 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             Feel free to
-            <a href="mailto:vthompson@vivianethompson.com" class="text-decoration-underline dollarGreen--text">email</a>
+            <a
+              href="mailto:vthompson@vivianethompson.com"
+              class="text-decoration-underline dollarGreen--text"
+              >email</a
+            >
             or better yet, to
-            <a @click="route('/contact');" class="text-decoration-underline dollarGreen--text">call</a>
-            &nbsp; me. As long as I am not working with a client, I'll answer the
-            phone.
+            <a
+              @click="route('/contact')"
+              class="text-decoration-underline dollarGreen--text"
+              >call</a
+            >
+            &nbsp; me. As long as I am not working with a client, I'll answer
+            the phone.
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -29,7 +37,16 @@ export default {
   },
   methods: {
     route: function(path) {
-      this.$router.push(path)
+      this.$router.push(path).catch(error => {
+        if (
+          error.name !== "NavigationDuplicated" &&
+          !error.mesage.includes(
+            "Avoided redundant navigation to current location"
+          )
+        ) {
+          console.log(error);
+        }
+      });
     }
   }
 };

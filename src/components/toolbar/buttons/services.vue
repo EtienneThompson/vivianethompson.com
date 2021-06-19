@@ -10,16 +10,16 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item @click="route('/services/business_consulting');">
+        <v-list-item @click="route('/services/business_consulting')">
           <v-list-item-title>Business Consulting</v-list-item-title>
         </v-list-item>
-        <v-list-item @click="route('/services/business_solutions');">
+        <v-list-item @click="route('/services/business_solutions')">
           <v-list-item-title>Business Solutions</v-list-item-title>
         </v-list-item>
-        <v-list-item @click="route('/services/income_taxes');">
+        <v-list-item @click="route('/services/income_taxes')">
           <v-list-item-title>Income Taxes</v-list-item-title>
         </v-list-item>
-        <v-list-item @click="route('/services/personal_finance');">
+        <v-list-item @click="route('/services/personal_finance')">
           <v-list-item-title>Personal Finance</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -34,11 +34,20 @@ export default {
   },
   methods: {
     route: function(path) {
-      this.$router.push(path);
+      this.$router.push(path).catch(error => {
+        if (
+          error.name !== "NavigationDuplicated" &&
+          !error.mesage.includes(
+            "Avoided redundant navigation to current location"
+          )
+        ) {
+          console.log(error);
+        }
+      });
     }
   },
   props: {
-    size: Number,
+    size: Number
   }
 };
 </script>

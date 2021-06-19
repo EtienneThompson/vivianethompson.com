@@ -7,10 +7,10 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item @click="route('/testimonials/current');">
+        <v-list-item @click="route('/testimonials/current')">
           <v-list-item-title>Current Testimonials</v-list-item-title>
         </v-list-item>
-        <v-list-item @click="route('/testimonials/previous');">
+        <v-list-item @click="route('/testimonials/previous')">
           <v-list-item-title>Previous Testimonials</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -25,7 +25,16 @@ export default {
   },
   methods: {
     route: function(path) {
-      this.$router.push(path);
+      this.$router.push(path).catch(error => {
+        if (
+          error.name !== "NavigationDuplicated" &&
+          !error.mesage.includes(
+            "Avoided redundant navigation to current location"
+          )
+        ) {
+          console.log(error);
+        }
+      });
     }
   }
 };

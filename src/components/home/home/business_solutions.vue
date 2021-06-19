@@ -1,7 +1,7 @@
 <template>
   <v-col :cols="size >= 800 ? '4' : '12'">
     <v-card outlined>
-      <div @click="route('/services/business_solutions');">
+      <div @click="route('/services/business_solutions')">
         <v-img
           height="150px"
           src="@/assets/home/business_solutions.jpg"
@@ -19,7 +19,7 @@
       <v-card-actions>
         <v-btn
           color="dollarGreen"
-          @click="route('/services/business_solutions');"
+          @click="route('/services/business_solutions')"
         >
           Read More...
         </v-btn>
@@ -35,11 +35,20 @@ export default {
   },
   methods: {
     route: function(path) {
-      this.$router.push(path);
+      this.$router.push(path).catch(error => {
+        if (
+          error.name !== "NavigationDuplicated" &&
+          !error.mesage.includes(
+            "Avoided redundant navigation to current location"
+          )
+        ) {
+          console.log(error);
+        }
+      });
     }
   },
   props: {
-    size: Number,
+    size: Number
   }
-}
+};
 </script>

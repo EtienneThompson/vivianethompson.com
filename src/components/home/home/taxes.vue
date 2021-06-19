@@ -1,7 +1,7 @@
 <template>
   <v-col :cols="size >= 800 ? '4' : '12'">
-    <v-card outlined >
-      <div @click="route('/services/income_taxes');">
+    <v-card outlined>
+      <div @click="route('/services/income_taxes')">
         <v-img height="150px" src="@/assets/home/receipts.jpg"></v-img>
       </div>
       <v-card-title class="ocean--text">Taxes</v-card-title>
@@ -14,7 +14,7 @@
         necessarily in your best interest.
       </v-card-text>
       <v-card-actions>
-        <v-btn color="dollarGreen" @click="route('/services/income_taxes');">
+        <v-btn color="dollarGreen" @click="route('/services/income_taxes')">
           Read More...
         </v-btn>
       </v-card-actions>
@@ -29,11 +29,20 @@ export default {
   },
   methods: {
     route: function(path) {
-      this.$router.push(path);
+      this.$router.push(path).catch(error => {
+        if (
+          error.name !== "NavigationDuplicated" &&
+          !error.mesage.includes(
+            "Avoided redundant navigation to current location"
+          )
+        ) {
+          console.log(error);
+        }
+      });
     }
   },
   props: {
-    size: Number,
+    size: Number
   }
 };
 </script>
