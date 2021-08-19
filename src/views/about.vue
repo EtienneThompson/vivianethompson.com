@@ -14,7 +14,7 @@
           <!-- Card image -->
           <v-row>
             <v-col>
-              <v-img height="300px" src="@/assets/about/thompson_accounting.jpg"></v-img>
+              <v-img height="300px" position="top 15% center" src="@/assets/about/thompson_accounting.jpg"></v-img>
             </v-col>
           </v-row>
 
@@ -104,24 +104,24 @@
           <!-- Images -->
           <v-row>
             <v-col>
-              <div @mouseover="hovered='cyndi'">
-                <img class="image-row image--center-top" src="@/assets/about/cyndi_team_2.jpg" />
+              <div @mouseover="hovered='amazir'">
+                <v-img class="image-row image--center-top" src="@/assets/about/amazir_team_2.jpg" />
               </div>
-              <div @mouseover="hovered='melissa'">
-                <img class="image-row image--center-top" src="@/assets/about/melissa_team_2.jpg" />
+              <div @mouseover="hovered='mikaila'">
+                <v-img class="image-row image--center-top" src="@/assets/about/mikaila_team_2.jpg" />
               </div>
               <div @mouseover="hovered='paula'">
-                <img class="image-row image--center-top" src="@/assets/about/paula_team_2.jpg" />
+                <v-img class="image-row image--center-top" aspect-ratio="0.75" position="top 12% center" src="@/assets/about/paula_team_2.jpg" />
               </div>
               <div @mouseover="hovered='viviane'">
-                <img class="image-row image--center-top" src="@/assets/about/viviane_team_2.jpg" />
+                <v-img class="image-row image--center-top" position="bottom center" src="@/assets/about/viviane_team_2.jpg" />
               </div>
             </v-col>
           </v-row>
 
           <!-- Hover bio text -->
           <v-row>
-            <v-col v-if="hovered === 'cyndi'">
+            <v-col v-if="hovered === 'amazir'">
               <v-row>
                 <v-col>
                   <div class="cyndi">
@@ -148,7 +148,7 @@
                 </v-col>
               </v-row>
             </v-col>
-            <v-col v-else-if="hovered === 'melissa'">
+            <v-col v-else-if="hovered === 'mikaila'">
               <v-row>
                 <v-col>
                   <div class="melissa">
@@ -261,6 +261,7 @@
     max-height: 300px;
     object-fit: cover;
     width: 25%;
+    border-radius: 45%;
   }
 
   .image--center-top {
