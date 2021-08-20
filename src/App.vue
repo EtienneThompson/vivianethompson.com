@@ -123,7 +123,7 @@
     <div class="padding" v-if="windowSize < 450"></div>
 
     <!-- Main View -->
-    <v-row class="flex-column">
+    <v-row class="flex-column mb-1">
       <router-view :key="$router.fullPath"> </router-view>
     </v-row>
 

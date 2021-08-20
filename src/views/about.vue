@@ -104,17 +104,17 @@
           <!-- Images -->
           <v-row>
             <v-col>
-              <div @mouseover="hovered='amazir'">
-                <v-img class="image-row image--center-top" src="@/assets/about/amazir_team_2.jpg" />
-              </div>
-              <div @mouseover="hovered='mikaila'">
-                <v-img class="image-row image--center-top" src="@/assets/about/mikaila_team_2.jpg" />
+              <div @mouseover="hovered='viviane'">
+                <v-img class="image-row image--center-top" position="bottom center" src="@/assets/about/viviane_team_2.jpg" />
               </div>
               <div @mouseover="hovered='paula'">
                 <v-img class="image-row image--center-top" aspect-ratio="0.75" position="top 12% center" src="@/assets/about/paula_team_2.jpg" />
               </div>
-              <div @mouseover="hovered='viviane'">
-                <v-img class="image-row image--center-top" position="bottom center" src="@/assets/about/viviane_team_2.jpg" />
+              <div @mouseover="hovered='michala'">
+                <v-img class="image-row image--center-top" src="@/assets/about/michala_team_2.jpg" />
+              </div>
+              <div @mouseover="hovered='amazir'">
+                <v-img class="image-row image--center-top" src="@/assets/about/amazir_team_2.jpg" />
               </div>
             </v-col>
           </v-row>
@@ -124,21 +124,18 @@
             <v-col v-if="hovered === 'amazir'">
               <v-row>
                 <v-col>
-                  <div class="cyndi">
-                    Cyndi <div>Clements</div>
+                  <div class="amazir-mobile" v-if="windowSize < 800">
+                    Amazir <div></div>
+                  </div>
+                  <div class="amazir-desktop" v-else>
+                    Amazir <div></div>
                   </div>
                 </v-col>
               </v-row>
               <v-row>
                 <v-col>
                   <p class="pa-5">
-                    Cyndi received her CPA certificate in November 2015 after
-                    graduating with a Masters of Accounting in December 2013
-                    from the University of Arizona. She has been in Tucson since
-                    2005 working as an auditor and accountant. She joined our
-                    office in October 2019 specializing in the firm’s QuickBooks
-                    online clients along with payroll, sales tax, and monthly
-                    accounting. She lives with an extremly adorable cat, Kerfluffle.<br/>
+                    Amazir text<br/>
                     Email:
                     <v-img
                       src="@/assets/about/cyndi_email.jpg"
@@ -148,23 +145,24 @@
                 </v-col>
               </v-row>
             </v-col>
-            <v-col v-else-if="hovered === 'mikaila'">
+            <v-col v-else-if="hovered === 'michala'">
               <v-row>
                 <v-col>
-                  <div class="melissa">
-                    Melissa <div>Dojaquez</div>
+                  <div class="michala">
+                    Michala<div>Hale</div>
                   </div>
                 </v-col>
               </v-row>
               <v-row>
                 <v-col>
                   <p class="pa-5">
-                    Melissa Dojaquez is a Tucson native and a U of A graduate
-                    with over 10 years of bookkeeping experience. Melissa enjoys
-                    helping clients learn how to use QuickBooks more efficiently
-                    so they can spend less time bookkeeping and more time growing
-                    their business. Melissa has 3 teenagers at home and is busy
-                    with them – enough said.
+                    Michala and her husband Jon, recently moved to Tucson from 
+                    Portland, OR after visiting the area on vacation and loving 
+                    the heat and dryness. She joined our practice as an accountant 
+                    bringing a lot of experience working with small business owners 
+                    in addition to being a mom (Joshua is 2 years old) and loving 
+                    dogs. She is excited to further her career in business along 
+                    with getting her college degree. 
                     <br/>
                     Email:
                     <v-img
@@ -207,10 +205,7 @@
             <v-col v-else-if="hovered === 'viviane'">
               <v-row>
                 <v-col>
-                  <div class="viviane-mobile" v-if="windowSize < 800">
-                    Viviane <div>Thompson</div>
-                  </div>
-                  <div class="viviane-desktop" v-else>
+                  <div class="viviane">
                     Viviane <div>Thompson</div>
                   </div>
                 </v-col>
@@ -274,34 +269,34 @@
     text-align: center;
   }
 
-  .cyndi {
-    font-size: 20px;
-    font-weight: bold;
-    text-indent: 7%;
-  }
-
-  .melissa {
-    font-size: 20px;
-    font-weight: bold;
-    text-indent: 33%;
-  }
-
-  .paula {
-    font-size: 20px;
-    font-weight: bold;
-    text-indent: 55%;
-  }
-
-  .viviane-mobile {
+  .amazir-mobile {
     font-size: 20px;
     font-weight: bold;
     text-indent: 70%;
   }
 
-  .viviane-desktop {
+  .amazir-desktop {
     font-size: 20px;
     font-weight: bold;
     text-indent: 80%;
+  }
+
+  .michala {
+    font-size: 20px;
+    font-weight: bold;
+    text-indent: 55%;
+  }
+
+  .paula {
+    font-size: 20px;
+    font-weight: bold;
+    text-indent: 33%;
+  }
+
+  .viviane {
+    font-size: 20px;
+    font-weight: bold;
+    text-indent: 7%;
   }
 </style>
 
