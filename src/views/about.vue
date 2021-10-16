@@ -110,8 +110,8 @@
         <!-- Images -->
         <v-row>
           <v-col>
-            <v-row>
-              <v-col cols="4">
+            <v-row v-if="windowSize > 800">
+              <v-col cols="3">
                 <div @mouseover="hovered = 'viviane'">
                   <v-img
                     class="image-row image--center-top"
@@ -120,7 +120,7 @@
                   ></v-img>
                 </div>
               </v-col>
-              <v-col cols="4">
+              <v-col cols="3">
                 <div @mouseover="hovered = 'paula'">
                   <v-img
                     class="image-row image--center-top"
@@ -129,18 +129,7 @@
                   ></v-img>
                 </div>
               </v-col>
-              <v-col cols="4">
-                <div @mouseover="hovered = 'cyndi'">
-                  <v-img
-                    class="image-row image--center-top"
-                    position="top 12% center"
-                    src="@/assets/about/cyndi_team_2.jpg"
-                  ></v-img>
-                </div>
-              </v-col>
-            </v-row>
-            <v-row justify="center">
-              <v-col cols="4">
+              <v-col cols="3">
                 <div @mouseover="hovered = 'michala'">
                   <v-img
                     class="image-row image--center-top"
@@ -148,13 +137,55 @@
                   ></v-img>
                 </div>
               </v-col>
-              <v-col cols="4">
+              <v-col cols="3">
                 <div @mouseover="hovered = 'amazigh'">
                   <v-img
                     class="image-row image--center-top"
                     src="@/assets/about/amazigh_team_2.jpg"
                   ></v-img>
                 </div>
+              </v-col>
+            </v-row>
+            <v-row v-else>
+              <v-col>
+                <v-row justify="center">
+                  <v-col cols="4">
+                    <div @mouseover="hovered = 'viviane'">
+                      <v-img
+                        class="image-row image--center-top"
+                        position="bottom center"
+                        src="@/assets/about/viviane_team_2.jpg"
+                      ></v-img>
+                    </div>
+                  </v-col>
+                  <v-col cols="4">
+                    <div @mouseover="hovered = 'paula'">
+                      <v-img
+                        class="image-row image--center-top"
+                        position="top 12% center"
+                        src="@/assets/about/paula_team_2.jpg"
+                      ></v-img>
+                    </div>
+                  </v-col>
+                </v-row>
+                <v-row justify="center">
+                  <v-col cols="4">
+                    <div @mouseover="hovered = 'michala'">
+                      <v-img
+                        class="image-row image--center-top"
+                        src="@/assets/about/michala_team_2.jpg"
+                      ></v-img>
+                    </div>
+                  </v-col>
+                  <v-col cols="4">
+                    <div @mouseover="hovered = 'amazigh'">
+                      <v-img
+                        class="image-row image--center-top"
+                        src="@/assets/about/amazigh_team_2.jpg"
+                      ></v-img>
+                    </div>
+                  </v-col>
+                </v-row>
               </v-col>
             </v-row>
           </v-col>
@@ -191,7 +222,11 @@
           <v-col v-else-if="hovered === 'michala'">
             <v-row>
               <v-col>
-                <div class="michala">
+                <div class="michala-desktop" v-if="windowSize > 800">
+                  Michala
+                  <div>Hale</div>
+                </div>
+                <div class="michala-mobile" v-else>
                   Michala
                   <div>Hale</div>
                 </div>
@@ -215,7 +250,11 @@
           <v-col v-else-if="hovered === 'paula'">
             <v-row>
               <v-col>
-                <div class="paula">
+                <div class="paula-desktop" v-if="windowSize > 800">
+                  Paula
+                  <div>Hartman</div>
+                </div>
+                <div class="paula-mobile" v-else>
                   Paula
                   <div>Hartman</div>
                 </div>
@@ -243,39 +282,15 @@
               </v-col>
             </v-row>
           </v-col>
-          <v-col v-else-if="hovered === 'cyndi'">
-            <v-row>
-              <v-col>
-                <div class="cyndi-mobile" v-if="windowSize < 500">
-                  Cyndi
-                  <div>Clements</div>
-                </div>
-                <div class="cyndi-desktop" v-else>
-                  Cyndi
-                  <div>Clements</div>
-                </div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <p class="pa-5">
-                  Cyndi received her CPA certificate in November 2015 after
-                  graduating with a Masters of Accounting in December 2013 from
-                  the University of Arizona. She has been in Tucson since 2005
-                  working as an auditor and accountant. She joined our office
-                  in October 2019 specializing in the firm’s QuickBooks online
-                  clients along with payroll, sales tax, and monthly
-                  accounting. She lives with an extremly adorable cat,
-                  Kerfluffle.
-                </p>
-              </v-col>
-            </v-row>
-          </v-col>
           <v-col v-else-if="hovered === 'viviane'">
             <v-row>
               <v-col>
-                <div class="viviane">
+                <div class="viviane-desktop" v-if="windowSize > 800">
                   Viviane
+                  <div>Thompson</div>
+                </div>
+                <div class="viviane-mobile" v-else>
+                  Vivane
                   <div>Thompson</div>
                 </div>
               </v-col>
@@ -364,37 +379,43 @@
 .amazigh-desktop {
   font-size: 20px;
   font-weight: bold;
+  text-indent: 85%;
+}
+
+.michala-desktop {
+  font-size: 20px;
+  font-weight: bold;
   text-indent: 60%;
 }
 
-.michala {
+.michala-mobile {
   font-size: 20px;
   font-weight: bold;
-  text-indent: 27%;
+  text-indent: 26%;
 }
 
-.paula {
+.paula-desktop {
   font-size: 20px;
   font-weight: bold;
-  text-indent: 42%;
+  text-indent: 34%;
 }
 
-.cyndi-mobile {
+.paula-mobile {
   font-size: 20px;
   font-weight: bold;
-  text-indent: 70%;
+  text-indent: 60%;
 }
 
-.cyndi-desktop {
-  font-size: 20px;
-  font-weight: bold;
-  text-indent: 80%;
-}
-
-.viviane {
+.viviane-desktop {
   font-size: 20px;
   font-weight: bold;
   text-indent: 7%;
+}
+
+.viviane-mobile {
+  font-size: 20px;
+  font-weight: bold;
+  text-indent: 26%;
 }
 </style>
 
