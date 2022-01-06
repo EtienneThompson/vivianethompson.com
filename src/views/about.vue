@@ -110,41 +110,39 @@
         <!-- Images -->
         <v-row>
           <v-col>
-            <v-row v-if="windowSize > 800">
-              <v-col cols="3">
-                <div @mouseover="hovered = 'viviane'">
-                  <v-img
-                    class="image-row image--center-top"
-                    position="bottom center"
-                    src="@/assets/about/viviane_team_2.jpg"
-                  ></v-img>
-                </div>
-              </v-col>
-              <v-col cols="3">
-                <div @mouseover="hovered = 'paula'">
-                  <v-img
-                    class="image-row image--center-top"
-                    position="top 12% center"
-                    src="@/assets/about/paula_team_2.jpg"
-                  ></v-img>
-                </div>
-              </v-col>
-              <v-col cols="3">
-                <div @mouseover="hovered = 'michala'">
-                  <v-img
-                    class="image-row image--center-top"
-                    src="@/assets/about/michala_team_2.jpg"
-                  ></v-img>
-                </div>
-              </v-col>
-              <v-col cols="3">
-                <div @mouseover="hovered = 'amazigh'">
-                  <v-img
-                    class="image-row image--center-top"
-                    src="@/assets/about/amazigh_team_2.jpg"
-                  ></v-img>
-                </div>
-              </v-col>
+            <v-row justify="center" v-if="windowSize > 800">
+              <div class="image-desktop" @mouseover="hovered = 'viviane'">
+                <v-img
+                  class="image-row image--center-top"
+                  position="bottom center"
+                  src="@/assets/about/viviane_team_2.jpg"
+                ></v-img>
+              </div>
+              <div class="image-desktop" @mouseover="hovered = 'paula'">
+                <v-img
+                  class="image-row image--center-top"
+                  position="top 12% center"
+                  src="@/assets/about/paula_team_2.jpg"
+                ></v-img>
+              </div>
+              <div class="image-desktop" @mouseover="hovered = 'michala'">
+                <v-img
+                  class="image-row image--center-top"
+                  src="@/assets/about/michala_team_2.jpg"
+                ></v-img>
+              </div>
+              <div class="image-desktop" @mouseover="hovered = 'monique'">
+                <v-img
+                  class="image-row image--center-top"
+                  src="@/assets/about/monique_team_2.jpg"
+                ></v-img>
+              </div>
+              <div class="image-desktop" @mouseover="hovered = 'leslie'">
+                <v-img
+                  class="image-row image--center-top"
+                  src="@/assets/about/leslie_team_2.jpg"
+                ></v-img>
+              </div>
             </v-row>
             <v-row v-else>
               <v-col>
@@ -178,10 +176,20 @@
                     </div>
                   </v-col>
                   <v-col cols="4">
-                    <div @mouseover="hovered = 'amazigh'">
+                    <div @mouseover="hovered = 'monique'">
                       <v-img
                         class="image-row image--center-top"
-                        src="@/assets/about/amazigh_team_2.jpg"
+                        src="@/assets/about/monique_team_2.jpg"
+                      ></v-img>
+                    </div>
+                  </v-col>
+                </v-row>
+                <v-row justify="center">
+                  <v-col cols="4">
+                    <div @mouseover="hovered = 'leslie'">
+                      <v-img
+                        class="image-row image--center-top"
+                        src="@/assets/about/leslie_team_2.jpg"
                       ></v-img>
                     </div>
                   </v-col>
@@ -193,28 +201,25 @@
 
         <!-- Hover bio text -->
         <v-row>
-          <v-col v-if="hovered === 'amazigh'">
+          <v-col v-if="hovered === 'monique'">
             <v-row>
               <v-col>
-                <div class="amazigh-mobile" v-if="windowSize < 800">
-                  Amazigh
-                  <div>Fajardo</div>
+                <div class="blurb-text monique-mobile" v-if="windowSize < 800">
+                  Monique
+                  <div>Miller</div>
                 </div>
-                <div class="amazigh-desktop" v-else>
-                  Amazigh
-                  <div>Fajardo</div>
+                <div class="blurb-text monique-desktop" v-else>
+                  Monique
+                  <div>Miller</div>
                 </div>
               </v-col>
             </v-row>
             <v-row>
               <v-col>
                 <p class="pa-5">
-                  Amazigh wants to be a forensic accountant working for the
-                  FBI. Until then, he is an in-house accountant while he is
-                  getting a business degree at the University of Arizona.
-                  Amazigh was valedictorian when he graduated from Basis Tucson
-                  North in June 2021. He has a twin brother who is studying
-                  engineering at the UofA.<br />
+                  Monique has lived in Tucson for 33 years, is young at heart,
+                  and loves numbers. She is pursuing a bachelor's degree in
+                  accounting.<br />
                 </p>
               </v-col>
             </v-row>
@@ -222,11 +227,14 @@
           <v-col v-else-if="hovered === 'michala'">
             <v-row>
               <v-col>
-                <div class="michala-desktop" v-if="windowSize > 800">
+                <div
+                  class="blurb-text michala-desktop"
+                  v-if="windowSize > 800"
+                >
                   Michala
                   <div>Hale</div>
                 </div>
-                <div class="michala-mobile" v-else>
+                <div class="blurb-text michala-mobile" v-else>
                   Michala
                   <div>Hale</div>
                 </div>
@@ -250,11 +258,11 @@
           <v-col v-else-if="hovered === 'paula'">
             <v-row>
               <v-col>
-                <div class="paula-desktop" v-if="windowSize > 800">
+                <div class="blurb-text paula-desktop" v-if="windowSize > 800">
                   Paula
                   <div>Hartman</div>
                 </div>
-                <div class="paula-mobile" v-else>
+                <div class="blurb-text paula-mobile" v-else>
                   Paula
                   <div>Hartman</div>
                 </div>
@@ -285,11 +293,14 @@
           <v-col v-else-if="hovered === 'viviane'">
             <v-row>
               <v-col>
-                <div class="viviane-desktop" v-if="windowSize > 800">
+                <div
+                  class="blurb-text viviane-desktop"
+                  v-if="windowSize > 800"
+                >
                   Viviane
                   <div>Thompson</div>
                 </div>
-                <div class="viviane-mobile" v-else>
+                <div class="blurb-text viviane-mobile" v-else>
                   Vivane
                   <div>Thompson</div>
                 </div>
@@ -335,8 +346,31 @@
               </v-col>
             </v-row>
           </v-col>
+          <v-col v-else-if="hovered === 'leslie'">
+            <v-row>
+              <v-col>
+                <div class="blurb-text leslie-desktop" v-if="windowSize > 800">
+                  Leslie
+                  <div>Lauretta</div>
+                </div>
+                <div class="blurb-text leslie-mobile" v-else>
+                  Leslie
+                  <div>Lauretta</div>
+                </div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <p class="pa-5">
+                  Leslie is the newest member of the champion team. She owned
+                  and operated a restaurant with a 5-star rating on Google, so
+                  she is familiar with the needs of small business owners.
+                </p>
+              </v-col>
+            </v-row>
+          </v-col>
           <v-col v-else>
-            <p class="default-text pa-2">
+            <p class="blurb-text default-text pa-2">
               Hover over or click someone to learn more about them!
             </p>
           </v-col>
@@ -352,6 +386,11 @@
   word-break: normal !important;
 }
 
+.image-desktop {
+  width: 18%;
+  margin: 2px;
+}
+
 .image-row {
   /* background-position: top; */
   float: left;
@@ -364,58 +403,53 @@
   object-position: 50% 10%;
 }
 
-.default-text {
+.blurb-text {
   font-size: 20px;
   font-weight: bold;
+}
+
+.default-text {
   text-align: center;
 }
 
-.amazigh-mobile {
-  font-size: 20px;
-  font-weight: bold;
-  text-indent: 60%;
+.viviane-desktop {
+  text-indent: 10%;
 }
 
-.amazigh-desktop {
-  font-size: 20px;
-  font-weight: bold;
-  text-indent: 85%;
-}
-
-.michala-desktop {
-  font-size: 20px;
-  font-weight: bold;
-  text-indent: 60%;
-}
-
-.michala-mobile {
-  font-size: 20px;
-  font-weight: bold;
+.viviane-mobile {
   text-indent: 26%;
 }
 
 .paula-desktop {
-  font-size: 20px;
-  font-weight: bold;
-  text-indent: 34%;
+  text-indent: 29%;
 }
 
 .paula-mobile {
-  font-size: 20px;
-  font-weight: bold;
   text-indent: 60%;
 }
 
-.viviane-desktop {
-  font-size: 20px;
-  font-weight: bold;
-  text-indent: 7%;
+.michala-desktop {
+  text-indent: 47%;
 }
 
-.viviane-mobile {
-  font-size: 20px;
-  font-weight: bold;
+.michala-mobile {
   text-indent: 26%;
+}
+
+.monique-desktop {
+  text-indent: 66%;
+}
+
+.monique-mobile {
+  text-indent: 60%;
+}
+
+.leslie-desktop {
+  text-indent: 85%;
+}
+
+.leslie-mobile {
+  text-indent: 45%;
 }
 </style>
 
