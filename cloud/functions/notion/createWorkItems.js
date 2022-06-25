@@ -10,46 +10,64 @@ dotenv.config();
  * TODO: Instead of using created date, add hidden property on the work items
  *    table which is a date which is set to the same date for all work items
  *    being created for the same category.
- * TODO: Skip any services which are custom.
  */
 
 const notion = new Client({ auth: process.env.NOTION_KEY });
 
-function generateFrequencyDate(frequency) {
-  let previous_date = new Date(2022, 0, 13);
-  console.log(previous_date.toISOString().split("T")[0]);
+function generatePreviousFrequencyDate(frequency, date) {
+  let previous_date;
+  if (date) {
+    previous_date = new Date(date);
+  } else {
+    previous_date = new Date();
+  }
   switch (frequency) {
     case "Weekly":
-      // Handle case where last week is in December.
-      if (previous_date.getDate() - 7 < 0 && previous_date.getMonth() - 1 < 0) {
-        previous_date.setDate(previous_date.getDate() - 7);
-        previous_date.setMonth(11);
-      } else {
-        previous_date.setDate(previous_date.getDate() - 7);
-      }
+      previous_date.setDate(previous_date.getDate() - 7);
       break;
 
     case "Bi-Weekly":
-      if (previous_date.getDate() - 14 < 0 && previous_date.getMonth() - 1 < 0) {
-        // Handle case where previous 2 weeks is in December.
-        previous_date.setDate(previous_date.getDate() - 14);
-        previous_date.setMonth(11);
-      } else {
-        previous_date.setDate(previous_date.getDate() - 14);
-      }
+      previous_date.setDate(previous_date.getDate() - 14);
       break;
 
     case "Monthly":
-      if (previous_date.getMonth() - 1 < 0) {
-        // Handle case where last month is in December.
-        previous_date.setFullYear(previous_date.getFullYear() - 1, 11);
-      } else {
-        previous_date.setMonth(previous_date.getMonth() - 1);
-      }
+      previous_date.setMonth(previous_date.getMonth() - 1);
       break;
 
     case "Annually":
       previous_date.setFullYear(previous_date.getFullYear() - 1);
+      break;
+
+    default:
+      console.log("default");
+      break;
+  }
+
+  return previous_date.toISOString().split("T")[0];
+}
+
+function generateFutureFrequencyDate(frequency, date) {
+  let previous_date;
+  if (date) {
+    previous_date = new Date(date);
+  } else {
+    previous_date = new Date();
+  }
+  switch (frequency) {
+    case "Weekly":
+      previous_date.setDate(previous_date.getDate() + 7);
+      break;
+
+    case "Bi-Weekly":
+      previous_date.setDate(previous_date.getDate() + 14);
+      break;
+
+    case "Monthly":
+      previous_date.setMonth(previous_date.getMonth() + 1);
+      break;
+
+    case "Annually":
+      previous_date.setFullYear(previous_date.getFullYear() + 1);
       break;
 
     default:
@@ -108,9 +126,9 @@ async function getExistingWorkItem(database_id, clientId, serviceId, query_date)
 }
 
 // Create a work item with a title and two relation properties set.
-async function createWorkItem(title, clientId, serviceId, database) {
+async function createWorkItem(title, clientId, serviceId, startTime, database) {
   try {
-    const response = await notion.pages.create({
+    let requestBody = {
       parent: { database_id: database },
       properties: {
         title: {
@@ -133,7 +151,15 @@ async function createWorkItem(title, clientId, serviceId, database) {
           relation: [serviceId],
         },
       },
-    });
+    };
+    if (startTime) {
+      requestBody.properties.Date = {
+        date: {
+          start: startTime,
+        },
+      };
+    }
+    const response = await notion.pages.create(requestBody);
   } catch (error) {
     console.log(error.body);
   }
@@ -154,8 +180,6 @@ for (let service of services) {
   // serviceMap[service.properties["Frequency"].select.id] = service.properties["Frequency"].select.name;
 }
 
-console.log(serviceMap);
-
 // Create the needed work items.
 for (let client of clients) {
   let clientId = client.id;
@@ -174,10 +198,13 @@ for (let client of clients) {
   for (let serviceId of clientServices) {
     // Calculate date for frequency.
     let freq = serviceMap[serviceId.id].freq_name;
-    console.log(freq);
 
-    let previous_date = generateFrequencyDate(freq);
-    console.log(previous_date);
+    if (freq === "Custom") {
+      console.log("Skipping custom service");
+      continue;
+    }
+
+    let previous_date = generatePreviousFrequencyDate(freq);
 
     // Check if a ticket that was created within the past frequency amount of
     // time exists. If it does, skip. Otherwise, create the work item.
@@ -192,6 +219,17 @@ for (let client of clients) {
       continue;
     }
 
-    await createWorkItem(clientName, clientId, serviceId, process.env.WORK_ITEM_DATABASE_ID);
+    // Get the date that was assigned to the previous tickets.
+    let filter_date = generatePreviousFrequencyDate(freq, previous_date);
+    let lastItem = await getExistingWorkItem(process.env.WORK_ITEM_DATABASE_ID, clientId, serviceId.id, filter_date);
+    let newDate = "";
+    if (lastItem && lastItem[0].properties["Date"].date) {
+      let lastDate = lastItem[0].properties["Date"].date.start;
+      console.log(lastDate);
+      newDate = generateFutureFrequencyDate(freq, lastDate);
+      console.log(newDate);
+    }
+
+    await createWorkItem(clientName, clientId, serviceId, newDate, process.env.WORK_ITEM_DATABASE_ID);
   }
 }
