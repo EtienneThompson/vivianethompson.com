@@ -3,16 +3,18 @@ import { Client } from "@notionhq/client";
 
 dotenv.config();
 
-/*
- * TODO: Ask if work items start on Mondays. If they do, instead of using
- *    created time, use the Monday. This makes it so services for clients added
- *    in the middle of week will refresh with all the others as well.
- * TODO: Instead of using created date, add hidden property on the work items
- *    table which is a date which is set to the same date for all work items
- *    being created for the same category.
- */
-
 const notion = new Client({ auth: process.env.NOTION_KEY });
+
+function getThisWeekMonday() {
+  let monday = new Date();
+  let adder = [-6, 0, -1, -2, -3, -4, -5];
+  // This gives a number in the range (0 - 6) where 1 in Sunday.
+  let currentDay = monday.getDay();
+  // Use the current day to find out how much to offset the current date by to
+  // get this week's monday.
+  monday.setDate(monday.getDate() + adder[currentDay]);
+  return monday.toISOString().split("T")[0];
+}
 
 function generatePreviousFrequencyDate(frequency, date) {
   let previous_date;
@@ -98,8 +100,8 @@ async function getExistingWorkItem(database_id, clientId, serviceId, query_date)
       filter: {
         and: [
           {
-            property: "Created",
-            created_time: {
+            property: "Period Date",
+            date: {
               on_or_after: query_date,
             },
           },
@@ -126,7 +128,7 @@ async function getExistingWorkItem(database_id, clientId, serviceId, query_date)
 }
 
 // Create a work item with a title and two relation properties set.
-async function createWorkItem(title, clientId, serviceId, startTime, database) {
+async function createWorkItem(title, monday, clientId, serviceId, startTime, database) {
   try {
     let requestBody = {
       parent: { database_id: database },
@@ -150,8 +152,14 @@ async function createWorkItem(title, clientId, serviceId, startTime, database) {
         Service: {
           relation: [serviceId],
         },
+        "Period Date": {
+          date: {
+            start: monday,
+          },
+        },
       },
     };
+    // If a time to set was specified, add it to the request.
     if (startTime) {
       requestBody.properties.Date = {
         date: {
@@ -177,7 +185,6 @@ for (let service of services) {
     freq_id: service.properties["Frequency"].select.id,
     freq_name: service.properties["Frequency"].select.name,
   };
-  // serviceMap[service.properties["Frequency"].select.id] = service.properties["Frequency"].select.name;
 }
 
 // Create the needed work items.
@@ -193,8 +200,6 @@ for (let client of clients) {
     }
   }
 
-  // console.log(clientServices);
-
   for (let serviceId of clientServices) {
     // Calculate date for frequency.
     let freq = serviceMap[serviceId.id].freq_name;
@@ -204,7 +209,10 @@ for (let client of clients) {
       continue;
     }
 
-    let previous_date = generatePreviousFrequencyDate(freq);
+    // Instead, get the date for the current week's monday, and check if an
+    // item exists within the past frequency of that monday.
+    let monday = getThisWeekMonday();
+    let previous_date = generatePreviousFrequencyDate(freq, monday);
 
     // Check if a ticket that was created within the past frequency amount of
     // time exists. If it does, skip. Otherwise, create the work item.
@@ -223,13 +231,15 @@ for (let client of clients) {
     let filter_date = generatePreviousFrequencyDate(freq, previous_date);
     let lastItem = await getExistingWorkItem(process.env.WORK_ITEM_DATABASE_ID, clientId, serviceId.id, filter_date);
     let newDate = "";
-    if (lastItem && lastItem[0].properties["Date"].date) {
+    // If there was a date assigned, then generate when the next one should be.
+    if (lastItem.length > 0 && lastItem[0].properties["Date"].date) {
       let lastDate = lastItem[0].properties["Date"].date.start;
       console.log(lastDate);
       newDate = generateFutureFrequencyDate(freq, lastDate);
       console.log(newDate);
     }
 
-    await createWorkItem(clientName, clientId, serviceId, newDate, process.env.WORK_ITEM_DATABASE_ID);
+    // Create the new work item.
+    await createWorkItem(clientName, monday, clientId, serviceId, newDate, process.env.WORK_ITEM_DATABASE_ID);
   }
 }
