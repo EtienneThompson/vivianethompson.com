@@ -128,7 +128,7 @@ async function getExistingWorkItem(database_id, clientId, serviceId, query_date)
 }
 
 // Create a work item with a title and two relation properties set.
-async function createWorkItem(title, monday, clientId, serviceId, startTime, database) {
+async function createWorkItem(title, monday, clientId, serviceId, startTime, assignee, database) {
   try {
     let requestBody = {
       parent: { database_id: database },
@@ -165,6 +165,17 @@ async function createWorkItem(title, monday, clientId, serviceId, startTime, dat
         date: {
           start: startTime,
         },
+      };
+    }
+    // If there was a person assigned to the work item, propagate it.
+    if (assignee) {
+      requestBody.properties.Person = {
+        people: [
+          {
+            object: "user",
+            id: assignee,
+          },
+        ],
       };
     }
     const response = await notion.pages.create(requestBody);
@@ -251,9 +262,23 @@ async function main() {
         newDate = generateFutureFrequencyDate(freq, lastDate);
       }
 
+      // Get the assignee for the previous work item.
+      let assignee = "";
+      if (lastItem.length > 0 && lastItem[0].properties) {
+        assignee = lastItem[0].properties["Person"].people[0].id;
+      }
+
       console.log("Creating work item...");
       // Create the new work item.
-      await createWorkItem(clientName, monday, clientId, serviceId, newDate, process.env.WORK_ITEM_DATABASE_ID);
+      await createWorkItem(
+        clientName,
+        monday,
+        clientId,
+        serviceId,
+        newDate,
+        assignee,
+        process.env.WORK_ITEM_DATABASE_ID
+      );
       console.log("Work item created successfully.");
     }
   }
