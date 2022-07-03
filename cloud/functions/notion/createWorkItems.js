@@ -198,11 +198,13 @@ async function main() {
   console.log("Generating service map...");
   // Generate a map between service id and information
   for (let service of services) {
-    serviceMap[service.id] = {
-      service_name: service.properties["Name"].title[0].plain_text,
-      freq_id: service.properties["Frequency"].select.id,
-      freq_name: service.properties["Frequency"].select.name,
-    };
+    if (service.properties["Frequency"].select !== null) {
+      serviceMap[service.id] = {
+        service_name: service.properties["Name"].title[0].plain_text,
+        freq_id: service.properties["Frequency"].select.id,
+        freq_name: service.properties["Frequency"].select.name,
+      };
+    }
   }
 
   console.log("Creating work items...");
@@ -224,6 +226,11 @@ async function main() {
     console.log(`Checking client ${clientName}...`);
 
     for (let serviceId of clientServices) {
+      // Skip any services which have an undefined frequency.
+      if (serviceMap[serviceId.id] === undefined) {
+        continue;
+      }
+
       // Calculate date for frequency.
       let freq = serviceMap[serviceId.id].freq_name;
 
