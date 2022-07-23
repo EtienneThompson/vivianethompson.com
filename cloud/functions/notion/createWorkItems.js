@@ -36,6 +36,10 @@ function generatePreviousFrequencyDate(frequency, date) {
       previous_date.setMonth(previous_date.getMonth() - 1);
       break;
 
+    case "Quarterly":
+      previous_date.setMonth(previous_date.getMonth() - 3);
+      break;
+
     case "Annually":
       previous_date.setFullYear(previous_date.getFullYear() - 1);
       break;
@@ -66,6 +70,10 @@ function generateFutureFrequencyDate(frequency, date) {
 
     case "Monthly":
       previous_date.setMonth(previous_date.getMonth() + 1);
+      break;
+
+    case "Quarterly":
+      previous_date.setMonth(previous_date.getMonth() + 3);
       break;
 
     case "Annually":
@@ -102,7 +110,7 @@ async function getExistingWorkItem(database_id, clientId, serviceId, query_date)
           {
             property: "Period Date",
             date: {
-              on_or_after: query_date,
+              after: query_date,
             },
           },
           {
@@ -198,7 +206,7 @@ async function main() {
   console.log("Generating service map...");
   // Generate a map between service id and information
   for (let service of services) {
-    if (service.properties["Frequency"].select !== null) {
+    if (service.properties["Frequency"].select !== null && service.properties["Frequency"].select !== undefined) {
       serviceMap[service.id] = {
         service_name: service.properties["Name"].title[0].plain_text,
         freq_id: service.properties["Frequency"].select.id,
