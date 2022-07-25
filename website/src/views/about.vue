@@ -108,271 +108,72 @@
         </v-row>
 
         <!-- Images -->
-        <v-row>
+        <v-row class="mt-0">
           <v-col>
+            <!-- Desktop layout -->
             <v-row justify="center" v-if="windowSize > 800">
-              <div class="image-desktop" @mouseover="hovered = 'viviane'">
-                <v-img
-                  class="image-row image--center-top"
-                  position="bottom center"
-                  src="@/assets/about/viviane_team_2.jpg"
-                ></v-img>
-              </div>
-              <div class="image-desktop" @mouseover="hovered = 'paula'">
-                <v-img
-                  class="image-row image--center-top"
-                  position="top 12% center"
-                  src="@/assets/about/paula_team_2.jpg"
-                ></v-img>
-              </div>
-              <div class="image-desktop" @mouseover="hovered = 'michala'">
-                <v-img
-                  class="image-row image--center-top"
-                  src="@/assets/about/michala_team_2.jpg"
-                ></v-img>
-              </div>
-              <div class="image-desktop" @mouseover="hovered = 'monique'">
-                <v-img
-                  class="image-row image--center-top"
-                  src="@/assets/about/monique_team_2.jpg"
-                ></v-img>
-              </div>
-              <div class="image-desktop" @mouseover="hovered = 'leslie'">
-                <v-img
-                  class="image-row image--center-top"
-                  src="@/assets/about/leslie_team_2.jpg"
-                ></v-img>
-              </div>
+              <team-member
+                image="viviane_team_2.jpg"
+                :blurb="blurbs.viviane_blurb"
+              />
+              <team-member
+                image="paula_team_2.jpg"
+                :blurb="blurbs.paula_blurb"
+              />
+              <team-member
+                image="michala_team_2.jpg"
+                :blurb="blurbs.michala_blurb"
+              />
+              <team-member
+                image="monique_team_2.jpg"
+                :blurb="blurbs.monique_blurb"
+              />
+              <team-member
+                image="leslie_team_2.jpg"
+                :blurb="blurbs.leslie_blurb"
+              />
             </v-row>
+            <!-- Mobile layout -->
             <v-row v-else>
               <v-col>
                 <v-row justify="center">
                   <v-col cols="4">
-                    <div @mouseover="hovered = 'viviane'">
-                      <v-img
-                        class="image-row image--center-top"
-                        position="bottom center"
-                        src="@/assets/about/viviane_team_2.jpg"
-                      ></v-img>
-                    </div>
+                    <team-member
+                      image="viviane_team_2.jpg"
+                      :blurb="blurbs.viviane_blurb"
+                    />
                   </v-col>
                   <v-col cols="4">
-                    <div @mouseover="hovered = 'paula'">
-                      <v-img
-                        class="image-row image--center-top"
-                        position="top 12% center"
-                        src="@/assets/about/paula_team_2.jpg"
-                      ></v-img>
-                    </div>
+                    <team-member
+                      image="paula_team_2.jpg"
+                      :blurb="blurbs.paula_blurb"
+                    />
                   </v-col>
                 </v-row>
                 <v-row justify="center">
                   <v-col cols="4">
-                    <div @mouseover="hovered = 'michala'">
-                      <v-img
-                        class="image-row image--center-top"
-                        src="@/assets/about/michala_team_2.jpg"
-                      ></v-img>
-                    </div>
+                    <team-member
+                      image="michala_team_2.jpg"
+                      :blurb="blurbs.michala_blurb"
+                    />
                   </v-col>
                   <v-col cols="4">
-                    <div @mouseover="hovered = 'monique'">
-                      <v-img
-                        class="image-row image--center-top"
-                        src="@/assets/about/monique_team_2.jpg"
-                      ></v-img>
-                    </div>
+                    <team-member
+                      image="monique_team_2.jpg"
+                      :blurb="blurbs.monique_blurb"
+                    />
                   </v-col>
                 </v-row>
                 <v-row justify="center">
                   <v-col cols="4">
-                    <div @mouseover="hovered = 'leslie'">
-                      <v-img
-                        class="image-row image--center-top"
-                        src="@/assets/about/leslie_team_2.jpg"
-                      ></v-img>
-                    </div>
+                    <team-member
+                      image="leslie_team_2.jpg"
+                      :blurb="blurbs.leslie_blurb"
+                    />
                   </v-col>
                 </v-row>
               </v-col>
             </v-row>
-          </v-col>
-        </v-row>
-
-        <!-- Hover bio text -->
-        <v-row>
-          <v-col v-if="hovered === 'monique'">
-            <v-row>
-              <v-col>
-                <div class="blurb-text monique-mobile" v-if="windowSize < 800">
-                  Monique
-                  <div>Miller</div>
-                </div>
-                <div class="blurb-text monique-desktop" v-else>
-                  Monique
-                  <div>Miller</div>
-                </div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <p class="pa-5">
-                  Monique has lived in Tucson for 33 years, is young at heart,
-                  and loves numbers. She is pursuing a bachelor's degree in
-                  accounting.<br />
-                </p>
-              </v-col>
-            </v-row>
-          </v-col>
-          <v-col v-else-if="hovered === 'michala'">
-            <v-row>
-              <v-col>
-                <div
-                  class="blurb-text michala-desktop"
-                  v-if="windowSize > 800"
-                >
-                  Michala
-                  <div>Hale</div>
-                </div>
-                <div class="blurb-text michala-mobile" v-else>
-                  Michala
-                  <div>Hale</div>
-                </div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <p class="pa-5">
-                  Michala and her husband Jon, recently moved to Tucson from
-                  Portland, OR after visiting the area on vacation and loving
-                  the heat and dryness. She joined our practice as an
-                  accountant bringing a lot of experience working with small
-                  business owners in addition to being a mom (Joshua is 2 years
-                  old) and loving dogs. She is excited to further her career in
-                  business along with getting her college degree.
-                  <br />
-                </p>
-              </v-col>
-            </v-row>
-          </v-col>
-          <v-col v-else-if="hovered === 'paula'">
-            <v-row>
-              <v-col>
-                <div class="blurb-text paula-desktop" v-if="windowSize > 800">
-                  Paula
-                  <div>Hartman</div>
-                </div>
-                <div class="blurb-text paula-mobile" v-else>
-                  Paula
-                  <div>Hartman</div>
-                </div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <p class="pa-5">
-                  Paula graduated from the University of Arizona in December
-                  2013 with a bachelor’s degree in Accounting. Her plans in
-                  2020 are to continue her education and pass the CPA exam
-                  within the next two years. She has been in the bookkeeping
-                  and accounting field since 2006 and has worked for Thompson
-                  Accounting for the past 3 years wearing many different hats:
-                  accountant, tax preparer, and office manager. She is
-                  originally from California, and has called Tucson home since
-                  2003. Her black, furry, needy and gift-giving cat is named
-                  JJ.<br />
-                  Email:
-                  <v-img
-                    src="@/assets/about/paula_email.jpg"
-                    width="225px"
-                  ></v-img>
-                </p>
-              </v-col>
-            </v-row>
-          </v-col>
-          <v-col v-else-if="hovered === 'viviane'">
-            <v-row>
-              <v-col>
-                <div
-                  class="blurb-text viviane-desktop"
-                  v-if="windowSize > 800"
-                >
-                  Viviane
-                  <div>Thompson</div>
-                </div>
-                <div class="blurb-text viviane-mobile" v-else>
-                  Vivane
-                  <div>Thompson</div>
-                </div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <p class="pa-5">
-                  You will notice her accent right away, yes, it’s sounds
-                  German but she is French. Viviane came to the US after high
-                  school and worked while going to college. Upon taking an
-                  accounting class she discovered her passion, and has fueled
-                  her carreer since then. Viviane got her CPA certificate in
-                  1994 and has been working for and with small business owners
-                  since. After moving to Tucson in 2005, she decided to open an
-                  accounting and tax practice rather than work for a single
-                  employer. She is married to Dave Thompson, an astronomer
-                  working for the Large Binocular Telescope (part of the
-                  University of Arizona) and has a 20 year old son (he made
-                  this website!) who is enjoying his studies in Computer
-                  Science and Chinese.<br />
-                  Email:<br />
-                  <a
-                    href="mailto:vthompson@vivianethompson.com"
-                    class="text-decoration-underline text-body-1 dollarGreen--text"
-                    >vthompson@vivianethompson.com</a
-                  ><br />
-                  <a
-                    href="http://www.azaccountancy.gov/"
-                    class="text-decoration-underline text-body-1 dollarGreen--text"
-                    target="_blank"
-                    >Arizona CPA License #</a
-                  >
-                  14363-R<br />
-                  <a
-                    href="http://www.dca.ca.gov/cba/"
-                    class="text-decoration-underline text-body-1 dollarGreen--text"
-                    target="_blank"
-                    >California CPA License #</a
-                  >
-                  67056
-                </p>
-              </v-col>
-            </v-row>
-          </v-col>
-          <v-col v-else-if="hovered === 'leslie'">
-            <v-row>
-              <v-col>
-                <div class="blurb-text leslie-desktop" v-if="windowSize > 800">
-                  Leslie
-                  <div>Lauretta</div>
-                </div>
-                <div class="blurb-text leslie-mobile" v-else>
-                  Leslie
-                  <div>Lauretta</div>
-                </div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <p class="pa-5">
-                  Leslie is the newest member of the champion team. She owned
-                  and operated a restaurant with a 5-star rating on Google, so
-                  she is familiar with the needs of small business owners.
-                </p>
-              </v-col>
-            </v-row>
-          </v-col>
-          <v-col v-else>
-            <p class="blurb-text default-text pa-2">
-              Hover over or click someone to learn more about them!
-            </p>
           </v-col>
         </v-row>
       </v-card>
@@ -385,79 +186,19 @@
 .v-card__title {
   word-break: normal !important;
 }
-
-.image-desktop {
-  width: 18%;
-  margin: 2px;
-}
-
-.image-row {
-  /* background-position: top; */
-  float: left;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 45%;
-}
-
-.image--center-top {
-  object-position: 50% 10%;
-}
-
-.blurb-text {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.default-text {
-  text-align: center;
-}
-
-.viviane-desktop {
-  text-indent: 10%;
-}
-
-.viviane-mobile {
-  text-indent: 26%;
-}
-
-.paula-desktop {
-  text-indent: 29%;
-}
-
-.paula-mobile {
-  text-indent: 60%;
-}
-
-.michala-desktop {
-  text-indent: 47%;
-}
-
-.michala-mobile {
-  text-indent: 26%;
-}
-
-.monique-desktop {
-  text-indent: 66%;
-}
-
-.monique-mobile {
-  text-indent: 60%;
-}
-
-.leslie-desktop {
-  text-indent: 85%;
-}
-
-.leslie-mobile {
-  text-indent: 45%;
-}
 </style>
 
 <script>
+import team_member from "../components/about/team_member.vue";
+import * as blurbs from "../components/about/strings";
+
 export default {
+  components: {
+    "team-member": team_member
+  },
   data: function() {
     return {
-      hovered: "",
+      blurbs: blurbs,
       windowSize: Number
     };
   },
