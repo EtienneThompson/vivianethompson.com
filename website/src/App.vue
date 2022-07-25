@@ -95,11 +95,6 @@
 
     <!-- Header -->
     <v-row align="stretch" no-gutters v-show="mainPage">
-      <navbar
-        :clipped="clipped"
-        :drawer="drawer"
-        v-on:toggle="toggleNavbar()"
-      ></navbar>
       <!-- Desktop toolbar -->
       <v-toolbar color="dollarGreen" elevation="2" v-if="windowSize >= 450">
         <toolbar
@@ -117,6 +112,12 @@
           v-on:toggle="toggleNavbar()"
         ></toolbar>
       </v-app-bar>
+
+      <navbar
+        :clipped="clipped"
+        :drawer="drawer"
+        v-on:toggle="toggleNavbar()"
+      ></navbar>
     </v-row>
 
     <!-- Mobile needs some padding to make sure all content is visible -->
@@ -159,18 +160,18 @@ export default {
   components: {
     navbar: navbar,
     toolbar: toolbar,
-    "footer-text": footer_text,
+    "footer-text": footer_text
   },
   computed: {
     mainPage: function() {
       return !this.$route.path.startsWith("/analytics") ? true : false;
-    },
+    }
   },
   data: function() {
     return {
       clipped: false,
-      drawer: null,
-      windowSize: 0,
+      drawer: false,
+      windowSize: 0
     };
   },
   metaInfo: function() {
@@ -180,25 +181,25 @@ export default {
         {
           name: "description",
           content:
-            "Expert advice for all your accounting needs. Troubleshoot accounting issues. Periodical controller: fulfill controller duties as needed. Personal accounting for busy families and professionals.",
+            "Expert advice for all your accounting needs. Troubleshoot accounting issues. Periodical controller: fulfill controller duties as needed. Personal accounting for busy families and professionals."
         },
         { name: "robots", content: "index, follow" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "charset", content: "UTF-8" },
-      ],
+        { name: "charset", content: "UTF-8" }
+      ]
     };
   },
   methods: {
     toggleNavbar: function() {
-      this.drawer = !this.drawer;
+      this.$set(this, "drawer", !this.drawer);
     },
     resize: function() {
       this.windowSize = window.innerWidth;
-    },
+    }
   },
   mounted: function() {
     this.resize();
     window.addEventListener("resize", this.resize, { passive: true });
-  },
+  }
 };
 </script>
