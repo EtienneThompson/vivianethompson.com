@@ -33,9 +33,7 @@
 <script>
 export default {
   data: function() {
-    return {
-      display_details: false
-    };
+    return {};
   },
   methods: {
     getImageUrl(imgName) {

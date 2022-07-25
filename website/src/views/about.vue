@@ -198,7 +198,6 @@ export default {
   },
   data: function() {
     return {
-      hovered: "",
       blurbs: blurbs,
       windowSize: Number
     };
