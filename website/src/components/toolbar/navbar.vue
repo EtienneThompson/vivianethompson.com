@@ -4,7 +4,7 @@
     :clipped="clipped"
     color="dollarGreen"
     temporary
-    v-model="drawer"
+    v-model="open"
   >
     <v-list-item>
       <home></home>
@@ -51,19 +51,23 @@ export default {
   },
   data: function() {
     return {
-      previous: false
+      previous: false,
+      open: this.drawer
     };
   },
   props: {
     clipped: Boolean,
-    drawer: Boolean
+    drawer: {
+      type: Boolean,
+      default: false
+    }
   },
   watch: {
-    drawer: function() {
-      if (this.drawer) {
-        this.previous = true;
-      } else if (this.previous) {
-        this.previous = false;
+    drawer: function(newVal) {
+      this.open = newVal;
+    },
+    open: function(newVal) {
+      if (!newVal) {
         this.$emit("toggle");
       }
     }
