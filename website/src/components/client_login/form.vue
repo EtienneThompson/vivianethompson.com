@@ -25,8 +25,9 @@
         <a
           href="https://vivianethompson.sharefile.com/Authentication/Login#ForgotPassword"
           class="text-decoration-underline text-body-1 dollarGreen--text"
-          >Forgot your Password?</a
         >
+          Forgot your Password?
+        </a>
       </v-row>
     </form>
   </v-container>
