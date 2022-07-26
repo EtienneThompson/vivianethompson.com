@@ -7,27 +7,27 @@
     v-model="open"
   >
     <v-list-item>
-      <home></home>
+      <home v-on:close_menu_modal="toggle"></home>
     </v-list-item>
 
     <v-list-item>
-      <about></about>
+      <about v-on:close_menu_modal="toggle"></about>
     </v-list-item>
 
     <v-list-item>
-      <services></services>
+      <services v-on:close_menu_modal="toggle"></services>
     </v-list-item>
 
     <v-list-item>
-      <quickbooks></quickbooks>
+      <quickbooks v-on:close_menu_modal="toggle"></quickbooks>
     </v-list-item>
 
     <v-list-item>
-      <faqs></faqs>
+      <faqs v-on:close_menu_modal="toggle"></faqs>
     </v-list-item>
 
     <v-list-item>
-      <contact></contact>
+      <contact v-on:close_menu_modal="toggle"></contact>
     </v-list-item>
   </v-navigation-drawer>
 </template>
@@ -54,6 +54,11 @@ export default {
       previous: false,
       open: this.drawer
     };
+  },
+  methods: {
+    toggle: function() {
+      this.open = false;
+    }
   },
   props: {
     clipped: Boolean,
