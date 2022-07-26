@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="pa-10">
     <form
       action="https://vivianethompson.sharefile.com"
       class="pl-5 pr-5"
@@ -17,9 +17,18 @@
         required
         type="password"
       ></v-text-field>
-      <v-btn color="dollarGreen" type="submit">
-        Login In
-      </v-btn>
+      <v-row>
+        <v-btn color="dollarGreen" type="submit">
+          Login In
+        </v-btn>
+        <v-spacer></v-spacer>
+        <a
+          href="https://vivianethompson.sharefile.com/Authentication/Login#ForgotPassword"
+          class="text-decoration-underline text-body-1 dollarGreen--text"
+        >
+          Forgot your Password?
+        </a>
+      </v-row>
     </form>
   </v-container>
 </template>
