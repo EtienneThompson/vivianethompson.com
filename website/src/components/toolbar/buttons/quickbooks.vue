@@ -36,6 +36,8 @@ export default {
           )
         ) {
           console.log(error);
+        } else {
+          this.$emit("close_menu_modal");
         }
       });
     }
