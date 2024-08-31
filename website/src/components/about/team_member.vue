@@ -1,16 +1,18 @@
 <template>
-  <v-tooltip bottom color="white" content-class="font-weight-black">
+  <v-tooltip top color="white" content-class="font-weight-black">
     <template v-slot:activator="{ on, attrs }">
       <v-img
         class="team-member"
-        contain
+        height="300"
+        max-width="250"
         position="center center"
         :src="getImageUrl(image)"
+        cover
         v-bind="attrs"
         v-on="on"
       ></v-img>
     </template>
-    <span>{{ blurb }}</span>
+    <span>{{ name }}</span>
   </v-tooltip>
 </template>
 
@@ -22,10 +24,6 @@
 }
 
 .team-member {
-  float: left;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 45%;
   margin: 5px;
 }
 </style>
@@ -42,7 +40,7 @@ export default {
   },
   props: {
     image: String,
-    blurb: String
+    name: String
   }
 };
 </script>
