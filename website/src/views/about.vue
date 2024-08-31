@@ -112,64 +112,34 @@
           <v-col>
             <!-- Desktop layout -->
             <v-row justify="center" v-if="windowSize > 800">
-              <team-member
-                image="viviane_team_2.jpg"
-                :blurb="blurbs.viviane_blurb"
-              />
-              <team-member
-                image="paula_team_2.jpg"
-                :blurb="blurbs.paula_blurb"
-              />
-              <team-member
-                image="michala_team_2.jpg"
-                :blurb="blurbs.michala_blurb"
-              />
-              <team-member
-                image="monique_team_2.jpg"
-                :blurb="blurbs.monique_blurb"
-              />
-              <team-member
-                image="leslie_team_2.jpg"
-                :blurb="blurbs.leslie_blurb"
-              />
+              <team-member image="viviane_team_2.jpg" name="Viviane" />
+              <team-member image="paula_team_2.jpg" name="Paula" />
+              <team-member image="crista_team_3.jpg" name="Crista" />
+              <team-member image="genean_team_3.jpg" name="Genean" />
+              <team-member image="jenny_team_3.jpg" name="Jenny" />
             </v-row>
             <!-- Mobile layout -->
             <v-row v-else>
               <v-col>
                 <v-row justify="center">
                   <v-col cols="4">
-                    <team-member
-                      image="viviane_team_2.jpg"
-                      :blurb="blurbs.viviane_blurb"
-                    />
+                    <team-member image="viviane_team_2.jpg" name="Viviane" />
                   </v-col>
                   <v-col cols="4">
-                    <team-member
-                      image="paula_team_2.jpg"
-                      :blurb="blurbs.paula_blurb"
-                    />
+                    <team-member image="paula_team_2.jpg" name="Paula" />
                   </v-col>
                 </v-row>
                 <v-row justify="center">
                   <v-col cols="4">
-                    <team-member
-                      image="michala_team_2.jpg"
-                      :blurb="blurbs.michala_blurb"
-                    />
+                    <team-member image="crista_team_3.jpg" name="Crista" />
                   </v-col>
                   <v-col cols="4">
-                    <team-member
-                      image="monique_team_2.jpg"
-                      :blurb="blurbs.monique_blurb"
-                    />
+                    <team-member image="genean_team_3.jpg" name="Genean" />
                   </v-col>
                 </v-row>
                 <v-row justify="center">
                   <v-col cols="4">
-                    <team-member
-                      image="leslie_team_2.jpg"
-                      :blurb="blurbs.leslie_blurb"
-                    />
+                    <team-member image="jenny_team_3.jpg" name="Jenny" />
                   </v-col>
                 </v-row>
               </v-col>
