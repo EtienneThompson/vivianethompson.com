@@ -1,5 +1,41 @@
 <template>
   <v-app>
+    <!-- Red Rock Redirect -->
+    <v-row no-gutters justify="center" align="center">
+      <v-card flat class="pa-3" width="100%" color="redrock">
+        <v-container height="100%">
+          <v-row justify="center" align="center">
+            <v-col align="center">
+              <v-img
+                position="center"
+                src="@/assets/red_rock_logo.png"
+                max-width="300px"
+              />
+            </v-col>
+            <v-col align="center" class="ma-1">
+              <v-row justify="center">
+                <span class="white--text font-weight-bold text-center"
+                  >We are moving! For all accounting inquiries, please go to
+                  our new site.</span
+                >
+              </v-row>
+              <v-row justify="center">
+                <v-btn
+                  style="background-image:linear-gradient(190deg,#2b87da 0%,#29c4a9 100%);background-color: #0c71c3;border-width: 5px !important;
+  border-color: #0c71c3;"
+                  class="white--text"
+                  :key="redrockButtonText"
+                  @click="navigateToRedrock"
+                >
+                  {{ redrockButtonText }}
+                </v-btn>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card>
+    </v-row>
+
     <!-- Title Image -->
     <v-row
       no-gutters
@@ -171,7 +207,8 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      windowSize: 0
+      windowSize: 0,
+      redrockButtonText: "Go to Red Rock Consulting & Tax"
     };
   },
   metaInfo: function() {
@@ -195,6 +232,25 @@ export default {
     },
     resize: function() {
       this.windowSize = window.innerWidth;
+    },
+    navigateToRedrock: function() {
+      let seconds = 5;
+      this.redrockButtonText = `Redirecting in ${seconds} seconds...`;
+      setInterval(
+        function() {
+          if (seconds === 0) {
+            return;
+          }
+
+          seconds = seconds - 1;
+          this.redrockButtonText = `Redirecting in ${seconds} seconds...`;
+        }.bind(this),
+        1000
+      );
+
+      setTimeout(function() {
+        window.location.href = "https://redrocktax.com/";
+      }, 5000);
     }
   },
   mounted: function() {
