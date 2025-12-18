@@ -1,40 +1,6 @@
 <template>
   <v-app>
-    <!-- Red Rock Redirect -->
-    <v-row no-gutters justify="center" align="center">
-      <v-card flat class="pa-3" width="100%" color="redrock">
-        <v-container height="100%">
-          <v-row justify="center" align="center">
-            <v-col align="center">
-              <v-img
-                position="center"
-                src="@/assets/red_rock_logo.png"
-                max-width="300px"
-              />
-            </v-col>
-            <v-col align="center" class="ma-1">
-              <v-row justify="center">
-                <span class="white--text font-weight-bold text-center"
-                  >We are moving! For all accounting inquiries, please go to
-                  our new site.</span
-                >
-              </v-row>
-              <v-row justify="center">
-                <v-btn
-                  style="background-image:linear-gradient(190deg,#2b87da 0%,#29c4a9 100%);background-color: #0c71c3;border-width: 5px !important;
-  border-color: #0c71c3;"
-                  class="white--text"
-                  :key="redrockButtonText"
-                  @click="navigateToRedrock"
-                >
-                  {{ redrockButtonText }}
-                </v-btn>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-card>
-    </v-row>
+    <red-rock-banner :key="$route.fullPath" />
 
     <!-- Title Image -->
     <v-row
@@ -191,12 +157,14 @@
 import navbar from "@/components/toolbar/navbar.vue";
 import toolbar from "@/components/toolbar/toolbar.vue";
 import footer_text from "@/components/toolbar/footer_text.vue";
+import red_rock_banner from "./components/red_rock_banner.vue";
 
 export default {
   components: {
     navbar: navbar,
     toolbar: toolbar,
-    "footer-text": footer_text
+    "footer-text": footer_text,
+    "red-rock-banner": red_rock_banner
   },
   computed: {
     mainPage: function() {
@@ -207,8 +175,7 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      windowSize: 0,
-      redrockButtonText: "Go to Red Rock Consulting & Tax"
+      windowSize: 0
     };
   },
   metaInfo: function() {
@@ -232,25 +199,6 @@ export default {
     },
     resize: function() {
       this.windowSize = window.innerWidth;
-    },
-    navigateToRedrock: function() {
-      let seconds = 5;
-      this.redrockButtonText = `Redirecting in ${seconds} seconds...`;
-      setInterval(
-        function() {
-          if (seconds === 0) {
-            return;
-          }
-
-          seconds = seconds - 1;
-          this.redrockButtonText = `Redirecting in ${seconds} seconds...`;
-        }.bind(this),
-        1000
-      );
-
-      setTimeout(function() {
-        window.location.href = "https://redrocktax.com/";
-      }, 5000);
     }
   },
   mounted: function() {
