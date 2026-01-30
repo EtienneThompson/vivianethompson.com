@@ -1,5 +1,7 @@
 <template>
   <v-app>
+    <red-rock-banner :key="$route.fullPath" />
+
     <!-- Title Image -->
     <v-row
       no-gutters
@@ -155,12 +157,14 @@
 import navbar from "@/components/toolbar/navbar.vue";
 import toolbar from "@/components/toolbar/toolbar.vue";
 import footer_text from "@/components/toolbar/footer_text.vue";
+import red_rock_banner from "./components/red_rock_banner.vue";
 
 export default {
   components: {
     navbar: navbar,
     toolbar: toolbar,
-    "footer-text": footer_text
+    "footer-text": footer_text,
+    "red-rock-banner": red_rock_banner
   },
   computed: {
     mainPage: function() {
